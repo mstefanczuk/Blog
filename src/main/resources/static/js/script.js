@@ -1,8 +1,8 @@
-(function(){
+(function () {
 
     var myapp = angular.module('blog', ["ui.router"]);
 
-    myapp.config(function($stateProvider, $urlRouterProvider){
+    myapp.config(function ($stateProvider, $urlRouterProvider) {
 
         $urlRouterProvider.otherwise("/")
 
@@ -33,11 +33,10 @@
                 controller: "CategoriesController",
                 controllerAs: "categoriesCtrl"
             })
-    });
 
-    myapp.controller('NavbarController', function ($scope, $location) {
-        $scope.isActive = function (viewLocation) {
-            return viewLocation === $location.path();
-        }
-    })
+            .state('archives', {
+                url: "/archives",
+                templateUrl: "html/archives.html"
+            })
+    });
 })();

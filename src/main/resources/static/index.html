@@ -5,24 +5,64 @@
     <meta charset="UTF-8">
     <title>Stefan programuje - programowanie po godzinach</title>
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="stylesheets/blog.css" rel="stylesheet">
 </head>
 
-<body class="container">
-<nav class="navbar navbar-default" ng-controller="NavbarController">
-    <div class="container-fluid">
-        <ul class="nav navbar-nav">
-            <li ng-class="{ active: isActive('/')}"><a ui-sref="home">Start</a></li>
-            <li ng-class="{ active: isActive('/about')}"><a ui-sref="about">O autorze</a></li>
-            <li ng-class="{ active: isActive('/categories')}"><a ui-sref="categories">Kategorie</a></li>
-        </ul>
-    </div>
-</nav>
-
-<div class="row">
-    <div class="span12">
-        <div class="well" ui-view></div>
+<body>
+<div class="blog-masthead">
+    <div class="container">
+        <nav class="blog-nav">
+            <a class="blog-nav-item" ng-class="{ active: isActive('/')}" ui-sref="home">START</a>
+            <a class="blog-nav-item" ng-class="{ active: isActive('/about')}" ui-sref="about">O AUTORZE</a>
+            <a class="blog-nav-item" ng-class="{ active: isActive('/categories')}" ui-sref="categories">KATEGORIE</a>
+            <a class="blog-nav-item" ng-class="{ active: isActive('/archives')}" ui-sref="archives">ARCHIWUM</a>
+        </nav>
     </div>
 </div>
+
+<div class="blog-header">
+</div>
+
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-sm-8 blog-main">
+
+            <div ui-view></div>
+
+        </div>
+
+        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+            <h4>O AUTORZE</h4>
+            <div class="sidebar-module">
+                <img id="authorImg" src="images/author.png">
+                <p>
+                    Autorem tego bloga jest Stefan. Opis testowy. Opis testowy. Opis testowy. Opis testowy.
+                    Opis testowy. Opis testowy. Opis testowy. Opis testowy. Opis testowy. Opis testowy. Opis testowy.
+                    Opis testowy. Opis testowy. Opis testowy. Opis testowy. Opis testowy. Opis testowy. Opis testowy.
+                </p>
+
+            </div>
+            <h4>OSTATNIE POSTY</h4>
+            <div class="sidebar-module">
+                <ol class="list-unstyled">
+                    <li><a href="#">Post 1</a></li>
+                    <li><a href="#">Post 2</a></li>
+                    <li><a href="#">Post 3</a></li>
+                    <li><a href="#">Post 4</a></li>
+                    <li><a href="#">Post 5</a></li>
+                </ol>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<footer class="blog-footer">
+    <p>Copyright © <a href="#">Michał Stefańczuk</a>. Hosted @ <a href="#">JakiśHosting</a>.</p>
+</footer>
 
 <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.js"></script>
 <script src="//angular-ui.github.io/ui-router/release/angular-ui-router.js"></script>
