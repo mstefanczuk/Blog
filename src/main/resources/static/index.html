@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html ng-app="blog">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Stefan programuje - programowanie po godzinach</title>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="container">
+<nav class="navbar navbar-default" ng-controller="NavbarController">
+    <div class="container-fluid">
+        <ul class="nav navbar-nav">
+            <li ng-class="{ active: isActive('/')}"><a ui-sref="home">Start</a></li>
+            <li ng-class="{ active: isActive('/about')}"><a ui-sref="about">O autorze</a></li>
+            <li ng-class="{ active: isActive('/categories')}"><a ui-sref="categories">Kategorie</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="row">
+    <div class="span12">
+        <div class="well" ui-view></div>
+    </div>
+</div>
+
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.js"></script>
+<script src="//angular-ui.github.io/ui-router/release/angular-ui-router.js"></script>
+
+<script src="js/script.js"></script>
+<script src="js/about.js"></script>
+<script src="js/categories.js"></script>
+</body>
+</html>
