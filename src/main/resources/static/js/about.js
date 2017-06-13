@@ -1,11 +1,11 @@
-(function() {
+(function () {
 
     var app = angular.module('blog');
 
-    app.controller('AboutController', ['$scope',
-        function($scope) {
+    app.controller('AboutController',
+        function ($scope) {
 
             $scope.items = ["Coś", "Z", "Jakiejś", "Listy"];
         }
-    ]);
+    );
 })();
