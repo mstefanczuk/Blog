@@ -1,10 +1,10 @@
 (function () {
 
-    var myapp = angular.module('blog', ["ui.router"]);
+    var app = angular.module('blog', ["ui.router"]);
 
-    myapp.config(function ($stateProvider, $urlRouterProvider) {
+    app.config(function($stateProvider, $urlRouterProvider) {
 
-        $urlRouterProvider.otherwise("/")
+        $urlRouterProvider.otherwise("/");
 
         $stateProvider
             .state('home', {
@@ -18,7 +18,7 @@
             })
             .state('about.list', {
                 url: "/list",
-                templateUrl: "html/about.list.html",
+                templateUrl: "html/about-list.html",
                 controller: "AboutController",
                 controllerAs: "aboutCtrl"
             })
@@ -29,7 +29,7 @@
             })
             .state('categories.list', {
                 url: "/list",
-                templateUrl: "html/categories.list.html",
+                templateUrl: "html/categories-list.html",
                 controller: "CategoriesController",
                 controllerAs: "categoriesCtrl"
             })
