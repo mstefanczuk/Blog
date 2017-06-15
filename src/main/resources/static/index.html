@@ -9,13 +9,13 @@
 </head>
 
 <body>
-<div class="navigation-bar">
+<div class="masthead">
     <div class="container">
-        <nav class="col-sm-8 blog-nav">
-            <a class="masthead" ui-sref="about">O BLOGU</a>
-            <a class="masthead" ui-sref="author">O AUTORZE</a>
-            <a class="masthead" ui-sref="categories">KATEGORIE</a>
-            <a class="masthead" ui-sref="archives">ARCHIWUM</a>
+        <nav class="col-sm-8 navigation-bar">
+            <a class="navigation-bar-item" ui-sref="about">O BLOGU</a>
+            <a class="navigation-bar-item" ui-sref="author">O AUTORZE</a>
+            <a class="navigation-bar-item" ui-sref="categories">KATEGORIE</a>
+            <a class="navigation-bar-item" ui-sref="archives">ARCHIWUM</a>
         </nav>
     </div>
 </div>
@@ -64,12 +64,16 @@
 </div>
 
 <footer class="footer">
-    <p>Copyright © <a href="#">Michał Stefańczuk</a>. Hosted @ <a href="#">JakiśHosting</a>.</p>
+    <p>Copyright © <a ui-sref="author">Michał Stefańczuk</a>. Hosted @ <a href="#">JakiśHosting</a>.</p>
 </footer>
 
-<script src="js/libs/angular.js"></script>
-<script src="js/libs/angular-ui-router.js"></script>
-<script src="js/libs/angular-scroll.js"></script>
+<script src="js/libs/angular.min.js"></script>
+<script src="js/libs/angular-animate.min.js"></script>
+<script src="js/libs/angular-aria.min.js"></script>
+<script src="js/libs/angular-messages.min.js"></script>
+<script src="js/libs/angular-material.min.js"></script>
+<script src="js/libs/angular-ui-router.min.js"></script>
+<script src="js/libs/angular-scroll.min.js"></script>
 
 <script src="js/blog.js"></script>
 <script src="js/author.js"></script>
