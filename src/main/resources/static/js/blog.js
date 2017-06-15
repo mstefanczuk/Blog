@@ -2,9 +2,8 @@
 
     var app = angular.module('blog', ["ui.router", "duScroll"]);
 
-    app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
+    app.config(function ($stateProvider, $urlRouterProvider) {
 
-        // $locationProvider.html5Mode(true);
         $urlRouterProvider.otherwise("/");
 
         $stateProvider
@@ -19,11 +18,17 @@
                 templateUrl: "html/about.html",
                 onEnter: scrollTop
             })
-            .state('about.list', {
+
+            .state('author', {
+                url: "/author",
+                templateUrl: "html/author.html",
+                onEnter: scrollTop
+            })
+            .state('author.list', {
                 url: "/list",
-                templateUrl: "html/about-list.html",
-                controller: "AboutController",
-                controllerAs: "aboutCtrl"
+                templateUrl: "html/author-list.html",
+                controller: "authorController",
+                controllerAs: "authorCtrl"
             })
 
             .state('categories', {

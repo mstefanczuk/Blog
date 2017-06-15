@@ -9,33 +9,37 @@
 </head>
 
 <body>
-<div class="blog-masthead">
+<div class="navigation-bar">
     <div class="container">
-        <nav class="blog-nav">
-            <a class="blog-nav-item" ng-class="{ active: isActive('/')}" ui-sref="home">START</a>
-            <a class="blog-nav-item" ng-class="{ active: isActive('/about')}" ui-sref="about">O AUTORZE</a>
-            <a class="blog-nav-item" ng-class="{ active: isActive('/categories')}" ui-sref="categories">KATEGORIE</a>
-            <a class="blog-nav-item" ng-class="{ active: isActive('/archives')}" ui-sref="archives">ARCHIWUM</a>
+        <nav class="col-sm-8 blog-nav">
+            <a class="masthead" ui-sref="about">O BLOGU</a>
+            <a class="masthead" ui-sref="author">O AUTORZE</a>
+            <a class="masthead" ui-sref="categories">KATEGORIE</a>
+            <a class="masthead" ui-sref="archives">ARCHIWUM</a>
         </nav>
     </div>
 </div>
 
-<div class="blog-header"></div>
+<div class="header">
+    <div class="container">
+        <a ui-sref="home"><img src="images/header.png"/></a>
+    </div>
+</div>
 
 <div class="container">
 
-    <div class="row">
+    <div class="blog-content">
 
-        <div class="col-sm-8 blog-main">
+        <div class="col-sm-8 main">
 
             <div ui-view></div>
 
         </div>
 
-        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+        <div class="col-sm-3 col-sm-offset-1 sidebar">
             <h4>O AUTORZE</h4>
-            <div class="sidebar-module">
-                <img id="authorImg" src="images/author.png">
+            <div class="sidebar-container">
+                <img id="author-img" src="images/author.png" ui-sref="home">
                 <p>
                     Autorem tego bloga jest Stefan. Opis testowy. Opis testowy. Opis testowy. Opis testowy.
                     Opis testowy. Opis testowy. Opis testowy. Opis testowy. Opis testowy. Opis testowy. Opis testowy.
@@ -44,7 +48,7 @@
 
             </div>
             <h4>OSTATNIE POSTY</h4>
-            <div class="sidebar-module">
+            <div class="sidebar-container">
                 <ol class="list-unstyled">
                     <li><a href="#">Post 1</a></li>
                     <li><a href="#">Post 2</a></li>
@@ -59,7 +63,7 @@
 
 </div>
 
-<footer class="blog-footer">
+<footer class="footer">
     <p>Copyright © <a href="#">Michał Stefańczuk</a>. Hosted @ <a href="#">JakiśHosting</a>.</p>
 </footer>
 
@@ -68,7 +72,7 @@
 <script src="js/libs/angular-scroll.js"></script>
 
 <script src="js/blog.js"></script>
-<script src="js/about.js"></script>
+<script src="js/author.js"></script>
 <script src="js/categories.js"></script>
 </body>
 </html>
