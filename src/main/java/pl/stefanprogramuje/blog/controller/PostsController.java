@@ -1,7 +1,6 @@
 package pl.stefanprogramuje.blog.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import pl.stefanprogramuje.blog.domain.Post;
 import pl.stefanprogramuje.blog.service.PostService;
