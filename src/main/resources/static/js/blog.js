@@ -1,4 +1,5 @@
 (function () {
+    'use strict';
 
     var app = angular.module('blog', ["ui.router", "duScroll"]);
 
@@ -7,43 +8,72 @@
         $urlRouterProvider.otherwise("/");
 
         $stateProvider
-            .state('home', {
+            .state('blog', {
+                abstract: true,
+                views: {
+                    masthead: {
+                        templateUrl: "html/masthead.html"
+                    },
+
+                    header: {
+                        templateUrl: "html/header.html"
+                    },
+
+                    '': {
+                        templateUrl: "html/main.html"
+                    },
+
+                    sidebar: {
+                        templateUrl: "html/sidebar.html",
+                        controller: 'SidebarController as sidebarCtrl'
+                    },
+
+                    footer: {
+                        templateUrl: "html/footer.html"
+                    }
+                },
+                resolve: {
+                    latestPosts: ['PostsService', function (PostsService) {
+                        return PostsService.getLatest5Posts();
+                    }]
+                }
+            })
+
+            .state('blog.home', {
                 url: "/",
                 templateUrl: "html/home.html",
                 onEnter: scrollTop
             })
 
-            .state('about', {
+            .state('blog.about', {
                 url: "/about",
                 templateUrl: "html/about.html",
                 onEnter: scrollTop
             })
 
-            .state('author', {
+            .state('blog.author', {
                 url: "/author",
                 templateUrl: "html/author.html",
                 onEnter: scrollTop
             })
-            .state('author.list', {
+            .state('blog.author.list', {
                 url: "/list",
                 templateUrl: "html/author-list.html",
-                controller: "authorController",
-                controllerAs: "authorCtrl"
+                controller: "authorController as authorCtrl"
             })
 
-            .state('categories', {
+            .state('blog.categories', {
                 url: "/categories",
                 templateUrl: "html/categories.html",
                 onEnter: scrollTop
             })
-            .state('categories.list', {
+            .state('blog.categories.list', {
                 url: "/list",
                 templateUrl: "html/categories-list.html",
-                controller: "CategoriesController",
-                controllerAs: "categoriesCtrl"
+                controller: "CategoriesController as categoriesCtrl"
             })
 
-            .state('archives', {
+            .state('blog.archives', {
                 url: "/archives",
                 templateUrl: "html/archives.html",
                 onEnter: scrollTop
