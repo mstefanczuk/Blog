@@ -1,0 +1,18 @@
+<div class="col-sm-3 col-sm-offset-1 sidebar">
+    <h4>O AUTORZE</h4>
+    <div class="sidebar-container">
+        <img id="author-img" src="images/author.png" ui-sref="home">
+        <p>
+            Autorem tego bloga jest Stefan. Opis testowy. Opis testowy. Opis testowy. Opis testowy.
+            Opis testowy. Opis testowy. Opis testowy. Opis testowy. Opis testowy. Opis testowy. Opis testowy.
+            Opis testowy. Opis testowy. Opis testowy. Opis testowy. Opis testowy. Opis testowy. Opis testowy.
+        </p>
+
+    </div>
+    <h4>OSTATNIE POSTY</h4>
+    <div class="sidebar-container">
+        <ol class="list-unstyled">
+            <li ng-repeat="post in sidebarCtrl.latest5Posts"><a href="#">{{post.title}}</a></li>
+        </ol>
+    </div>
+</div>
