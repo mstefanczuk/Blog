@@ -1,5 +1,7 @@
 package pl.stefanprogramuje.blog.domain;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
@@ -22,6 +24,7 @@ public class User {
     private String fullName;
 
     @OneToMany(mappedBy = "author")
+    @JsonManagedReference
     private Set<Post> posts = new HashSet<>();
 
     public User() {

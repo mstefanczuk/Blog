@@ -1,5 +1,7 @@
 package pl.stefanprogramuje.blog.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -19,6 +21,7 @@ public class Post {
     private String body;
 
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @JsonBackReference
     private User author;
 
     @Column(nullable = false)
