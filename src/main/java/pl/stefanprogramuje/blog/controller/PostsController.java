@@ -8,7 +8,7 @@ import pl.stefanprogramuje.blog.service.PostService;
 import java.util.List;
 
 @RestController()
-@RequestMapping("/posts")
+@RequestMapping("/api/posts")
 public class PostsController {
 
     private final PostService postService;

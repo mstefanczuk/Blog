@@ -12,28 +12,28 @@
                 abstract: true,
                 views: {
                     masthead: {
-                        templateUrl: "html/masthead.html"
+                        templateUrl: "views/masthead.html"
                     },
 
                     header: {
-                        templateUrl: "html/header.html"
+                        templateUrl: "views/header.html"
                     },
 
                     '': {
-                        templateUrl: "html/main.html"
+                        templateUrl: "views/main.html"
                     },
 
                     sidebar: {
-                        templateUrl: "html/sidebar.html",
-                        controller: 'SidebarController as sidebarCtrl'
+                        templateUrl: "views/sidebar.html",
+                        controller: 'sidebarController as sidebarCtrl'
                     },
 
                     footer: {
-                        templateUrl: "html/footer.html"
+                        templateUrl: "views/footer.html"
                     }
                 },
                 resolve: {
-                    latestPosts: ['PostsService', function (PostsService) {
+                    latestPosts: ['postsService', function (PostsService) {
                         return PostsService.getLatest5Posts();
                     }]
                 }
@@ -41,46 +41,48 @@
 
             .state('blog.home', {
                 url: "/",
-                templateUrl: "html/home.html",
-                onEnter: scrollTop
+                templateUrl: "views/home.html"
             })
 
             .state('blog.about', {
                 url: "/about",
-                templateUrl: "html/about.html",
-                onEnter: scrollTop
+                templateUrl: "views/about.html"
             })
 
             .state('blog.author', {
                 url: "/author",
-                templateUrl: "html/author.html",
-                onEnter: scrollTop
+                templateUrl: "views/author.html"
             })
             .state('blog.author.list', {
                 url: "/list",
-                templateUrl: "html/author-list.html",
+                templateUrl: "views/author-list.html",
                 controller: "authorController as authorCtrl"
             })
 
             .state('blog.categories', {
                 url: "/categories",
-                templateUrl: "html/categories.html",
-                onEnter: scrollTop
+                templateUrl: "views/categories.html"
             })
             .state('blog.categories.list', {
                 url: "/list",
-                templateUrl: "html/categories-list.html",
-                controller: "CategoriesController as categoriesCtrl"
+                templateUrl: "views/categories-list.html",
+                controller: "categoriesController"
             })
 
             .state('blog.archives', {
                 url: "/archives",
-                templateUrl: "html/archives.html",
-                onEnter: scrollTop
+                templateUrl: "views/archives.html"
+            })
+
+            .state('blog.post', {
+                url: "/posts/{postId:[0-9]+}",
+                templateUrl: "views/post.html",
+                controller: "postsController as postsCtrl",
+                resolve: {
+                    postDetails: ['postsService', '$stateParams', function (PostsService, $stateParams) {
+                        return PostsService.getPostById($stateParams.postId);
+                    }]
+                }
             })
     });
-
-    function scrollTop($document) {
-        $document.scrollTopAnimated(0);
-    }
 })();

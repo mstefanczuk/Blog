@@ -3,7 +3,7 @@
 
     var blogApp = angular.module('blog');
 
-    blogApp.controller('CategoriesController', function () {
+    blogApp.controller('categoriesController', function () {
             var self = this;
 
             self.things = ["Coś", "Z", "Jakiejś", "Listy"];
