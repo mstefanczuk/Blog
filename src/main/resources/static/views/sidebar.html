@@ -12,7 +12,9 @@
     <h4>OSTATNIE POSTY</h4>
     <div class="sidebar-container">
         <ol class="list-unstyled">
-            <li ng-repeat="post in sidebarCtrl.latest5Posts"><a href="#">{{post.title}}</a></li>
+            <li ng-repeat="post in sidebarCtrl.latest5Posts" scroll-top-on-click>
+                <a href="{{sidebarCtrl.url + post.id}}">{{post.title}}</a>
+            </li>
         </ol>
     </div>
 </div>

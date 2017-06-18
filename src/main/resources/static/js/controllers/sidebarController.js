@@ -3,12 +3,11 @@
 
     var blogApp = angular.module('blog');
 
-    blogApp.controller('SidebarController', ['latestPosts', function (latestPosts) {
+    blogApp.controller('sidebarController', ['latestPosts', function (latestPosts) {
 
         var self = this;
 
         self.latest5Posts = latestPosts;
-
-        console.log(self.latest5Posts);
-    }])
+        self.url = "/#!/posts/";
+    }]);
 })();
