@@ -27,14 +27,23 @@ public class Post {
     @Column(nullable = false)
     private Date date;
 
+    @Column(nullable = false, length = 300, unique = true)
+    private String titleUrl;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JsonBackReference
+    private Category category;
+
     public Post() {
     }
 
-    public Post(String title, String body, User author, Date date) {
+    public Post(String title, String body, User author, Date date, String titleUrl, Category category) {
         this.title = title;
         this.body = body;
         this.author = author;
         this.date = date;
+        this.titleUrl = titleUrl;
+        this.category = category;
     }
 
     public Long getId() {
@@ -75,6 +84,22 @@ public class Post {
 
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    public String getTitleUrl() {
+        return titleUrl;
+    }
+
+    public void setTitleUrl(String titleUrl) {
+        this.titleUrl = titleUrl;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 
     @Override

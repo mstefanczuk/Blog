@@ -3,7 +3,7 @@
 
     var blogApp = angular.module('blog');
 
-    blogApp.controller('postsController', ['postDetails', function (postDetails) {
+    blogApp.controller('postController', ['postDetails', function (postDetails) {
         var self = this;
 
         self.postTitle = postDetails.title;

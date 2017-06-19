@@ -12,6 +12,8 @@ public interface PostService {
 
     Post findById(Long id);
 
+    Post findByTitleUrl(String titleUrl);
+
     Post create(Post post);
 
     Post edit(Post post);

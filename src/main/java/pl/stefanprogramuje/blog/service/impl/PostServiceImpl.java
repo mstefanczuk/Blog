@@ -35,6 +35,11 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
+    public Post findByTitleUrl(String titleUrl) {
+        return postRepository.findByTitleUrl(titleUrl);
+    }
+
+    @Override
     public Post create(Post post) {
         return postRepository.save(post);
     }

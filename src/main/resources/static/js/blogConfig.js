@@ -3,7 +3,9 @@
 
     var blogApp = angular.module('blog', ["ui.router", "duScroll"]);
 
-    blogApp.config(function ($stateProvider, $urlRouterProvider) {
+    blogApp.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
+
+        $locationProvider.html5Mode(true);
 
         $urlRouterProvider.otherwise("/");
 
@@ -33,8 +35,8 @@
                     }
                 },
                 resolve: {
-                    latestPosts: ['postsService', function (PostsService) {
-                        return PostsService.getLatest5Posts();
+                    latestPosts: ['postService', function (postService) {
+                        return postService.getLatest5Posts();
                     }]
                 }
             })
@@ -45,12 +47,12 @@
             })
 
             .state('blog.about', {
-                url: "/about",
+                url: "/blog",
                 templateUrl: "views/about.html"
             })
 
             .state('blog.author', {
-                url: "/author",
+                url: "/autor",
                 templateUrl: "views/author.html"
             })
             .state('blog.author.list', {
@@ -60,27 +62,27 @@
             })
 
             .state('blog.categories', {
-                url: "/categories",
+                url: "/kategorie",
                 templateUrl: "views/categories.html"
             })
             .state('blog.categories.list', {
                 url: "/list",
                 templateUrl: "views/categories-list.html",
-                controller: "categoriesController"
+                controller: "categoryController as categoryCtrl"
             })
 
             .state('blog.archives', {
-                url: "/archives",
+                url: "/archiwum",
                 templateUrl: "views/archives.html"
             })
 
             .state('blog.post', {
-                url: "/posts/{postId:[0-9]+}",
+                url: "/post/{postTitleUrl:.+}",
                 templateUrl: "views/post.html",
-                controller: "postsController as postsCtrl",
+                controller: "postController as postCtrl",
                 resolve: {
-                    postDetails: ['postsService', '$stateParams', function (PostsService, $stateParams) {
-                        return PostsService.getPostById($stateParams.postId);
+                    postDetails: ['postService', '$stateParams', function (postService, $stateParams) {
+                        return postService.getPostByTitleUrl($stateParams.postTitleUrl);
                     }]
                 }
             })

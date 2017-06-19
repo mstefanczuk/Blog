@@ -3,7 +3,7 @@
 
     var blogApp = angular.module('blog');
 
-    blogApp.factory('postsService', ['$http', '$q', function ($http, $q) {
+    blogApp.factory('postService', ['$http', '$q', function ($http, $q) {
 
         return {
             getLatest5Posts: function () {
@@ -20,7 +20,19 @@
             },
 
             getPostById: function (id) {
-                return $http.get('http://localhost:8080/api/posts/' + id)
+                return $http.get('http://localhost:8080/api/posts/id/' + id)
+                    .then(
+                        function (response) {
+                            return response.data;
+                        },
+                        function (errResponse) {
+                            return $q.reject(errResponse);
+                        }
+                    )
+            },
+
+            getPostByTitleUrl: function (titleUrl) {
+                return $http.get('http://localhost:8080/api/posts/title/' + titleUrl)
                     .then(
                         function (response) {
                             return response.data;

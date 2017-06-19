@@ -9,16 +9,16 @@ import java.util.List;
 
 @RestController()
 @RequestMapping("/api/posts")
-public class PostsController {
+public class PostController {
 
     private final PostService postService;
 
     @Autowired
-    public PostsController(PostService postService) {
+    public PostController(PostService postService) {
         this.postService = postService;
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/id/{id}")
     public Post getPost(@PathVariable Long id) {
         return postService.findById(id);
     }
@@ -28,4 +28,8 @@ public class PostsController {
         return postService.findLatest5();
     }
 
+    @GetMapping("/title/{titleUrl}")
+    public Post getPostByTitleUrl(@PathVariable String titleUrl) {
+        return postService.findByTitleUrl(titleUrl);
+    }
 }

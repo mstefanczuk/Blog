@@ -8,6 +8,6 @@
         var self = this;
 
         self.latest5Posts = latestPosts;
-        self.url = "/#!/posts/";
+        self.urlPrefix = "post/";
     }]);
 })();
