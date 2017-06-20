@@ -55,11 +55,6 @@
                 url: "/autor",
                 templateUrl: "views/author.html"
             })
-            .state('blog.author.list', {
-                url: "/list",
-                templateUrl: "views/author-list.html",
-                controller: "authorController as authorCtrl"
-            })
 
             .state('blog.categories', {
                 url: "/kategorie",
