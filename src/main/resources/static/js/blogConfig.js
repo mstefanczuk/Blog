@@ -43,7 +43,7 @@
 
             .state('blog.home', {
                 url: "/",
-                templateUrl: "views/home.html"
+                templateUrl: "views/posts.html"
             })
 
             .state('blog.about', {
@@ -80,6 +80,11 @@
                         return postService.getPostByTitleUrl($stateParams.postTitleUrl);
                     }]
                 }
+            })
+
+            .state('blog.posts', {
+                url: "/posty",
+                templateUrl: "views/posts.html"
             })
     });
 })();

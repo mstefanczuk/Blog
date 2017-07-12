@@ -13,7 +13,7 @@ public class ViewController {
             "/kategorie/list",
             "/archiwum",
             "/post/{postTitleUrl:.+}",
-            "/posts"
+            "/posty"
     })
     public String index() {
         return "forward:/index.html";
