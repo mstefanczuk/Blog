@@ -3,16 +3,17 @@
 
     var blogApp = angular.module('blog');
 
-    blogApp.controller('postController', ['postDetails', function (postDetails) {
+    blogApp.controller('postDetailsController', function (postDetails) {
         var self = this;
 
         self.postTitle = postDetails.title;
         self.postDate = formatDate(new Date(postDetails.date));
         self.postBody = postDetails.body;
-    }]);
+    });
 
     function formatDate(date) {
-        var monthNames = ["Stycznia", "Lutego", "Marca", "Kwietnia", "Maja", "Czerwca", "Lipca", "Sierpnia",
+        var monthNames = ["Stycznia", "Lutego", "Marca", "Kwietnia",
+            "Maja", "Czerwca", "Lipca", "Sierpnia",
             "Września", "Października", "Listopada", "Grudnia"];
 
         var day = date.getDate();

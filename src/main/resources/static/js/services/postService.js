@@ -10,13 +10,26 @@
                 return $http.get('http://localhost:8080/api/posts/latest5')
                     .then(
                         function (response) {
-                            return response.data;
+                            return $q.resolve(response.data);
                         },
                         function (errResponse) {
                             console.error('Error while getting latest 5 posts');
                             return $q.reject(errResponse);
                         }
                     )
+            },
+
+            getLatest6FromPage: function (page) {
+                return $http.get('http://localhost:8080/api/posts/latest6FromPage?page=' + page)
+                    .then(
+                        function (response) {
+                            return response.data;
+                        },
+                        function (errResponse) {
+                            console.error('Error while getting next 6 posts');
+                            return $q.reject(errResponse);
+                        }
+                    );
             },
 
             getPostById: function (id) {
@@ -42,6 +55,6 @@
                         }
                     )
             }
-        }
+        };
     }])
 })();

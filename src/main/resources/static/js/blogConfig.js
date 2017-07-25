@@ -1,7 +1,7 @@
 (function () {
     'use strict';
 
-    var blogApp = angular.module('blog', ["ui.router", "duScroll"]);
+    var blogApp = angular.module('blog', ["ui.router", "duScroll", "ngAnimate"]);
 
     blogApp.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
 
@@ -35,7 +35,7 @@
                     }
                 },
                 resolve: {
-                    latestPosts: ['postService', function (postService) {
+                    latest5Posts: ['postService', function (postService) {
                         return postService.getLatest5Posts();
                     }]
                 }
@@ -43,7 +43,13 @@
 
             .state('blog.home', {
                 url: "/",
-                templateUrl: "views/posts.html"
+                templateUrl: "views/posts.html",
+                controller: "postHeadingsController as postHeadingsCtrl",
+                resolve: {
+                    first6Posts: ['postService', function (postService) {
+                        return postService.getLatest6FromPage(0);
+                    }]
+                }
             })
 
             .state('blog.about', {
@@ -74,17 +80,12 @@
             .state('blog.post', {
                 url: "/post/{postTitleUrl:.+}",
                 templateUrl: "views/post.html",
-                controller: "postController as postCtrl",
+                controller: "postDetailsController as postDetailsCtrl",
                 resolve: {
                     postDetails: ['postService', '$stateParams', function (postService, $stateParams) {
                         return postService.getPostByTitleUrl($stateParams.postTitleUrl);
                     }]
                 }
-            })
-
-            .state('blog.posts', {
-                url: "/posty",
-                templateUrl: "views/posts.html"
             })
     });
 })();

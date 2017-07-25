@@ -10,6 +10,8 @@ public interface PostService {
 
     List<Post> findLatest5();
 
+    List<Post> findNext6FromPage(int page);
+
     Post findById(Long id);
 
     Post findByTitleUrl(String titleUrl);

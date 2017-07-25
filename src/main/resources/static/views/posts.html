@@ -1,44 +1,11 @@
 <div class="post-headings-container">
-    <div class="post-heading col-sm-6">
-        <a href="#">
+    <div class="post-heading col-sm-6 fadein" ng-repeat="postHeading in postHeadingsCtrl.postsHeadingsList">
+        <a href="{{postHeadingsCtrl.postUrlPrefix + postHeading.titleUrl}}" scroll-top-on-click>
             <figure>
                 <img src="images/posts/pierwszy-post/heading.png"/>
                 <figcaption>
-                    <h2>Pierwszy post</h2>
-                    <p>Cześć! To jest pierwszy post</p>
-                </figcaption>
-            </figure>
-        </a>
-    </div>
-    <div class="post-heading col-sm-6">
-        <a href="#">
-            <figure>
-                <img src="images/posts/drugi-post/heading.png"/>
-                <figcaption>
-                    <h2>Drugi post</h2>
-                    <p>Cześć! To jest drugi post</p>
-                </figcaption>
-            </figure>
-        </a>
-    </div>
-    <div class="post-heading col-sm-6">
-        <a href="#">
-            <figure>
-                <img src="images/posts/pierwszy-post/heading.png"/>
-                <figcaption>
-                    <h2>Pierwszy post</h2>
-                    <p>Cześć! To jest pierwszy post</p>
-                </figcaption>
-            </figure>
-        </a>
-    </div>
-    <div class="post-heading col-sm-6">
-        <a href="#">
-            <figure>
-                <img src="images/posts/drugi-post/heading.png"/>
-                <figcaption>
-                    <h2>Drugi post</h2>
-                    <p>Cześć! To jest drugi post</p>
+                    <h2>{{postHeading.title}}</h2>
+                    <p>{{postHeading.body}}</p>
                 </figcaption>
             </figure>
         </a>
