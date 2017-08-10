@@ -106,36 +106,36 @@ h6, .h6 {
     color: #a4ca8c;
 }
 
-.post-headings-container {
+.post-headings-container, .category-headings-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
 
-.post-heading {
+.post-heading, .category-heading {
     display: inline-block;
     margin-top: 10px;
 }
 
-.post-heading a {
+.post-heading a, .category-heading a {
     text-decoration: none;
 }
 
-.post-heading img {
+.post-heading img, .category-heading img {
     width: 100%;
     transition: transform .2s ease-in-out;
 }
 
-.post-heading figure {
+.post-heading figure, .category-heading figure {
     overflow: hidden;
 }
 
-.post-heading figcaption {
+.post-heading figcaption, .category-heading figcaption {
     margin-top: 15px;
     text-align: center;
 }
 
-.post-heading:hover img {
+.post-heading:hover img, .category-heading:hover img {
     transform: scale(1.15);
 }
 

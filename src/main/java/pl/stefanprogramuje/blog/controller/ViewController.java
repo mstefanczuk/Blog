@@ -10,7 +10,6 @@ public class ViewController {
             "/blog",
             "/autor",
             "/kategorie",
-            "/kategorie/list",
             "/archiwum",
             "/post/{postTitleUrl:.+}",
             "/posty"

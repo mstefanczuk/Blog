@@ -64,12 +64,13 @@
 
             .state('blog.categories', {
                 url: "/kategorie",
-                templateUrl: "views/categories.html"
-            })
-            .state('blog.categories.list', {
-                url: "/list",
-                templateUrl: "views/categories-list.html",
-                controller: "categoryController as categoryCtrl"
+                templateUrl: "views/categories.html",
+                controller: "categoryController as categoryCtrl",
+                resolve: {
+                    allCategories: ['categoryService', function (categoryService) {
+                        return categoryService.getAllCategories();
+                    }]
+                }
             })
 
             .state('blog.archives', {

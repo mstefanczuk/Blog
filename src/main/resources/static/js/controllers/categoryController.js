@@ -3,10 +3,10 @@
 
     var blogApp = angular.module('blog');
 
-    blogApp.controller('categoryController', function () {
+    blogApp.controller('categoryController', function (allCategories) {
             var self = this;
 
-            self.things = ["Coś", "Z", "Jakiejś", "Listy"];
+            self.categories = allCategories;
         }
     );
 })();

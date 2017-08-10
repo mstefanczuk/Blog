@@ -1,10 +1,6 @@
 package pl.stefanprogramuje.blog.domain;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-
 import javax.persistence.*;
-import java.util.HashSet;
-import java.util.Set;
 
 @Entity
 @Table(name = "categories")
@@ -16,10 +12,6 @@ public class Category {
 
     @Column(nullable = false, length = 100)
     private String name;
-
-    @OneToMany(mappedBy = "category")
-    @JsonManagedReference
-    private Set<Post> posts = new HashSet<>();
 
     public Category() {
     }
@@ -42,14 +34,6 @@ public class Category {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public Set<Post> getPosts() {
-        return posts;
-    }
-
-    public void setPosts(Set<Post> posts) {
-        this.posts = posts;
     }
 
     @Override

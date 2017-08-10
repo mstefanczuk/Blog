@@ -10,11 +10,11 @@
                 return $http.get('http://localhost:8080/api/posts/latest5')
                     .then(
                         function (response) {
-                            return $q.resolve(response.data);
+                            return response.data;
                         },
                         function (errResponse) {
                             console.error('Error while getting latest 5 posts');
-                            return $q.reject(errResponse);
+                            return errResponse.data;
                         }
                     )
             },
@@ -27,7 +27,7 @@
                         },
                         function (errResponse) {
                             console.error('Error while getting next 6 posts');
-                            return $q.reject(errResponse);
+                            return errResponse.data;
                         }
                     );
             },
@@ -39,7 +39,8 @@
                             return response.data;
                         },
                         function (errResponse) {
-                            return $q.reject(errResponse);
+                            console.error('Error while getting post by id: ' + id);
+                            return errResponse.data;
                         }
                     )
             },
@@ -51,7 +52,8 @@
                             return response.data;
                         },
                         function (errResponse) {
-                            return $q.reject(errResponse);
+                            console.error('Error while getting post by titleUrl: ' + titleUrl);
+                            return errResponse.data;
                         }
                     )
             }

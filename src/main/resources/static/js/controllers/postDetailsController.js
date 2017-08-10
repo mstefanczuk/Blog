@@ -9,6 +9,8 @@
         self.postTitle = postDetails.title;
         self.postDate = formatDate(new Date(postDetails.date));
         self.postBody = postDetails.body;
+        self.postAuthor = postDetails.author.fullName;
+        self.postCategory = postDetails.category.name;
     });
 
     function formatDate(date) {

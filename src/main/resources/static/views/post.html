@@ -1,5 +1,7 @@
 <div class="post">
     <h2 class="post-title">{{postDetailsCtrl.postTitle}}</h2>
-    <p class="post-meta">{{postDetailsCtrl.postDate}}, by <a ui-sref="blog.author" scroll-top-on-click>Stefan</a></p>
+    <p class="post-meta">{{postDetailsCtrl.postDate}},
+        autor: <a ui-sref="blog.author" scroll-top-on-click>{{postDetailsCtrl.postAuthor}}</a>,
+        kategoria: <a ui-sref="blog.categories" scroll-top-on-click>{{postDetailsCtrl.postCategory}}</a></p>
     <p>{{postDetailsCtrl.postBody}}</p>
 </div>

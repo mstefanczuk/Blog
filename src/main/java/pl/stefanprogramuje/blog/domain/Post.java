@@ -20,8 +20,7 @@ public class Post {
     @Column(nullable = false)
     private String body;
 
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
-    @JsonBackReference
+    @ManyToOne(optional = false, fetch = FetchType.EAGER)
     private User author;
 
     @Column(nullable = false)
@@ -30,8 +29,7 @@ public class Post {
     @Column(nullable = false, length = 300, unique = true)
     private String titleUrl;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JsonBackReference
+    @ManyToOne(fetch = FetchType.EAGER)
     private Category category;
 
     public Post() {
@@ -110,6 +108,8 @@ public class Post {
                 ", body='" + body + '\'' +
                 ", author=" + author +
                 ", date=" + date +
+                ", titleUrl='" + titleUrl + '\'' +
+                ", category=" + category +
                 '}';
     }
 }
