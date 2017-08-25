@@ -9,10 +9,10 @@ public class ViewController {
     @RequestMapping({
             "/blog",
             "/autor",
-            "/kategorie",
             "/archiwum",
             "/post/{postTitleUrl:.+}",
-            "/posty"
+            "/posty",
+            "/kategorie/{categoryNameUrl:.+}"
     })
     public String index() {
         return "forward:/index.html";

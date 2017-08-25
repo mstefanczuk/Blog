@@ -7,6 +7,7 @@
             var self = this;
 
             self.categories = allCategories;
+            self.postsByCategoryUrlPrefix = 'kategorie/';
         }
     );
 })();

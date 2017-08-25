@@ -1,6 +1,6 @@
 <div class="category-headings-container">
     <div class="category-heading col-sm-6 fadein" ng-repeat="category in categoryCtrl.categories">
-        <a href="#" scroll-top-on-click>
+        <a href="{{categoryCtrl.postsByCategoryUrlPrefix + category.nameUrl}}" scroll-top-on-click>
             <figure>
                 <img src="images/categories/kategoria1.png"/>
                 <figcaption>

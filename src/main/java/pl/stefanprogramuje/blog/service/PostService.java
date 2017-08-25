@@ -12,6 +12,8 @@ public interface PostService {
 
     List<Post> findNext6FromPage(int page);
 
+    List<Post> findNext6ByCategoryNameUrlFromPage(String categoryNameUrl, int page);
+
     Post findById(Long id);
 
     Post findByTitleUrl(String titleUrl);

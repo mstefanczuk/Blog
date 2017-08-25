@@ -28,13 +28,19 @@ public class PostController {
         return postService.findLatest5();
     }
 
-    @GetMapping("/latest6FromPage")
-    public List<Post> getLatest6PostsFromPage(@RequestParam("page") int page) {
+    @GetMapping("/page/{page}")
+    public List<Post> getNext6PostsFromPage(@PathVariable int page) {
         return postService.findNext6FromPage(page);
     }
 
     @GetMapping("/title/{titleUrl}")
     public Post getPostByTitleUrl(@PathVariable String titleUrl) {
         return postService.findByTitleUrl(titleUrl);
+    }
+
+    @GetMapping("/category/{categoryNameUrl}/page/{page}")
+    public List<Post> getNext6PostsByCategoryNameUrlFromPage(@PathVariable String categoryNameUrl,
+                                                             @PathVariable int page) {
+        return postService.findNext6ByCategoryNameUrlFromPage(categoryNameUrl, page);
     }
 }

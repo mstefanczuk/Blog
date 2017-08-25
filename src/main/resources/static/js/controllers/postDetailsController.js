@@ -6,11 +6,14 @@
     blogApp.controller('postDetailsController', function (postDetails) {
         var self = this;
 
+        self.postsByCategoryUrlPrefix = 'kategorie/';
+
         self.postTitle = postDetails.title;
         self.postDate = formatDate(new Date(postDetails.date));
         self.postBody = postDetails.body;
         self.postAuthor = postDetails.author.fullName;
-        self.postCategory = postDetails.category.name;
+        self.postCategoryName = postDetails.category.name;
+        self.postCategoryUrl = postDetails.category.nameUrl;
     });
 
     function formatDate(date) {

@@ -13,6 +13,9 @@ public class Category {
     @Column(nullable = false, length = 100)
     private String name;
 
+    @Column(nullable = false, length = 100)
+    private String nameUrl;
+
     public Category() {
     }
 
@@ -36,11 +39,20 @@ public class Category {
         this.name = name;
     }
 
+    public String getNameUrl() {
+        return nameUrl;
+    }
+
+    public void setNameUrl(String nameUrl) {
+        this.nameUrl = nameUrl;
+    }
+
     @Override
     public String toString() {
         return "Category{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
+                ", nameUrl='" + nameUrl + '\'' +
                 '}';
     }
 }

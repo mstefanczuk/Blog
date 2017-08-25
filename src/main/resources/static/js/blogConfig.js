@@ -47,7 +47,7 @@
                 controller: "postHeadingsController as postHeadingsCtrl",
                 resolve: {
                     first6Posts: ['postService', function (postService) {
-                        return postService.getLatest6FromPage(0);
+                        return postService.getNext6FromPage(0);
                     }]
                 }
             })
@@ -69,6 +69,17 @@
                 resolve: {
                     allCategories: ['categoryService', function (categoryService) {
                         return categoryService.getAllCategories();
+                    }]
+                }
+            })
+
+            .state('blog.postsByCategory', {
+                url: "/kategorie/{categoryNameUrl:.+}",
+                templateUrl: "views/posts-by-category.html",
+                controller: "postHeadingsByCategoryController as postHeadingsByCategoryCtrl",
+                resolve: {
+                    first6PostsByCategory: ['postService', '$stateParams', function (postService, $stateParams) {
+                        return postService.getNext6ByCategoryNameUrlFromPage($stateParams.categoryNameUrl, 0);
                     }]
                 }
             })

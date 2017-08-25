@@ -26,12 +26,17 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public List<Post> findLatest5() {
-        return postRepository.findLatestFromPage(new PageRequest(0, 5));
+        return postRepository.findAllByOrderByDateDesc(new PageRequest(0, 5));
     }
 
     @Override
     public List<Post> findNext6FromPage(int page) {
-        return postRepository.findLatestFromPage(new PageRequest(page, 6));
+        return postRepository.findAllByOrderByDateDesc(new PageRequest(page, 6));
+    }
+
+    @Override
+    public List<Post> findNext6ByCategoryNameUrlFromPage(String categoryNameUrl, int page) {
+        return postRepository.findAllByCategory_NameUrlOrderByDateDesc(categoryNameUrl, new PageRequest(page, 6));
     }
 
     @Override

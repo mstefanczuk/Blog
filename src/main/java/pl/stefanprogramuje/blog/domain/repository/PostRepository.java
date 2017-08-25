@@ -11,8 +11,9 @@ import java.util.List;
 @Repository
 public interface PostRepository extends JpaRepository<Post, Long> {
 
-    @Query("SELECT p FROM Post p ORDER BY p.date DESC")
-    List<Post> findLatestFromPage(Pageable pageable);
+    List<Post> findAllByOrderByDateDesc(Pageable pageable);
 
     Post findByTitleUrl(String titleUrl);
+
+    List<Post> findAllByCategory_NameUrlOrderByDateDesc(String categoryNameUrl, Pageable pageable);
 }

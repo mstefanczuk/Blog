@@ -3,18 +3,18 @@
 
     var blogApp = angular.module('blog');
 
-    blogApp.controller('postHeadingsController', function (first6Posts, postService) {
+    blogApp.controller('postHeadingsByCategoryController', function (first6PostsByCategory, postService, $stateParams) {
 
         var self = this;
 
         self.postUrlPrefix = "post/";
         self.postPagesCounter = 1;
-        self.postsHeadingsList = first6Posts;
+        self.postsHeadingsList = first6PostsByCategory;
 
         loadNextPostsOnScrollReachedBottom();
 
         function loadNextPosts() {
-            postService.getNext6FromPage(self.postPagesCounter).then(
+            postService.getNext6ByCategoryNameUrlFromPage($stateParams.categoryNameUrl, self.postPagesCounter).then(
                 function (response) {
                     self.postsHeadingsList = self.postsHeadingsList.concat(response);
                     self.postPagesCounter++;
