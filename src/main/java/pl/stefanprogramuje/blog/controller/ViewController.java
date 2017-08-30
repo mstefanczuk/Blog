@@ -9,7 +9,6 @@ public class ViewController {
     @RequestMapping({
             "/blog",
             "/autor",
-            "/archiwum",
             "/post/{postTitleUrl:.+}",
             "/posty",
             "/kategorie/{categoryNameUrl:.+}"

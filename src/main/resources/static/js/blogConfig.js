@@ -73,6 +73,11 @@
                 }
             })
 
+            .state('blog.contact', {
+                url: "/kontakt",
+                templateUrl: "views/contact.html"
+            })
+
             .state('blog.postsByCategory', {
                 url: "/kategorie/{categoryNameUrl:.+}",
                 templateUrl: "views/posts-by-category.html",
@@ -82,11 +87,6 @@
                         return postService.getNext6ByCategoryNameUrlFromPage($stateParams.categoryNameUrl, 0);
                     }]
                 }
-            })
-
-            .state('blog.archives', {
-                url: "/archiwum",
-                templateUrl: "views/archives.html"
             })
 
             .state('blog.post', {
