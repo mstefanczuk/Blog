@@ -75,7 +75,8 @@
 
             .state('blog.contact', {
                 url: "/kontakt",
-                templateUrl: "views/contact.html"
+                templateUrl: "views/contact.html",
+                controller: "emailController as emailCtrl"
             })
 
             .state('blog.postsByCategory', {

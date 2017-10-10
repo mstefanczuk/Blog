@@ -1,2 +1,9 @@
 <h1>Kontakt</h1>
-<p>Tu niby ma być formatka do wysyłania maila</p>
+<form class="contact-form">
+    <input ng-model="emailCtrl.from" type="text" placeholder="Email">
+    <textarea ng-model="emailCtrl.content" placeholder="Treść" style="height:200px"></textarea>
+
+    <input type="submit" value="{{emailCtrl.submitButtonValue}}" ng-click="emailCtrl.sendEmail()">
+
+    <div id="notification">{{emailCtrl.notificationMessage}}</div>
+</form>

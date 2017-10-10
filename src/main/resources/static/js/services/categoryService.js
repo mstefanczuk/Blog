@@ -3,7 +3,7 @@
 
     var blogApp = angular.module('blog');
 
-    blogApp.factory('categoryService', ['$http', '$q', function ($http, $q) {
+    blogApp.factory('categoryService', ['$http', '$q', function ($http) {
 
         return {
             getAllCategories: function () {

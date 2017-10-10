@@ -12,7 +12,8 @@ import javax.mail.internet.MimeMessage;
 @Service
 public class EmailServiceImpl implements EmailService {
 
-    private static final String EMAIL_ADDRESS = "kontotestowedotestowania666@gmail.com";
+    private static final String TO_EMAIL_ADDRESS = "kontotestowedotestowania666@gmail.com";
+    private static final String SUBJECT = "Wiadomość z formularza";
 
     private final JavaMailSender javaMailSender;
 
@@ -22,14 +23,14 @@ public class EmailServiceImpl implements EmailService {
     }
 
     @Override
-    public void sendEmail(String from, String subject, String content) throws MessagingException {
+    public void sendEmail(String from, String content) throws MessagingException {
         MimeMessage mimeMessage = javaMailSender.createMimeMessage();
 
         MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, true);
-        helper.setTo(EMAIL_ADDRESS);
+        helper.setTo(TO_EMAIL_ADDRESS);
         helper.setReplyTo(from);
         helper.setFrom(from);
-        helper.setSubject(subject);
+        helper.setSubject(SUBJECT);
         helper.setText(content, true);
 
         javaMailSender.send(mimeMessage);

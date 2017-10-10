@@ -1,11 +1,10 @@
 package pl.stefanprogramuje.blog.controller;
 
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import pl.stefanprogramuje.blog.domain.Email;
 import pl.stefanprogramuje.blog.service.EmailService;
 
@@ -22,15 +21,16 @@ public class EmailController {
     }
 
     @PostMapping("/send")
-    public ResponseEntity<String> send(@RequestBody Email email) {
+    @ResponseBody
+    public Email send(@RequestBody Email email) {
         email.setStatus(Email.SUCCESS);
 
         try {
-            emailService.sendEmail(email.getFrom(), email.getSubject(), email.getContent());
+            emailService.sendEmail(email.getFrom(), email.getContent());
         } catch (MessagingException e) {
             email.setStatus(Email.ERROR);
         }
 
-        return new ResponseEntity<>(email.getStatus(), HttpStatus.OK);
+        return email;
     }
 }
