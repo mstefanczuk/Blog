@@ -1,12 +1,19 @@
 package pl.stefanprogramuje.blog.domain;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 public class Email {
 
     public static final String SUCCESS = "SUCCESS";
     public static final String ERROR = "ERROR";
 
+    @NotNull
+    @org.hibernate.validator.constraints.Email
     private String from;
     private String subject;
+
+    @Size(max = 10000)
     private String content;
     private String status;
 
