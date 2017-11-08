@@ -1,0 +1,42 @@
+#masthead {
+    width: 100%;
+    background-color: #93babb;
+    -webkit-box-shadow: inset 0 -2px 5px rgba(0, 0, 0, .1);
+    box-shadow: inset 0 -2px 5px rgba(0, 0, 0, .1);
+    z-index: 100000;
+}
+
+#masthead .container {
+    text-align: center;
+}
+
+.navigation-bar-item {
+    display: inline-block;
+    padding: 10px;
+    font-weight: 500;
+    color: #dbeef0;
+    margin: auto;
+}
+
+.navigation-bar-item:hover,
+.navigation-bar-item:focus {
+    color: #fff;
+    text-decoration: none;
+}
+
+.navigation-bar-item .active {
+    color: #fff;
+}
+
+#header {
+    width: 100%;
+    background: #dbeef0;
+}
+
+#header img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}

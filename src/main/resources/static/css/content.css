@@ -1,0 +1,21 @@
+#blog-content {
+    padding-top: 20px;
+}
+
+#main {
+    font-size: 13px;
+    line-height: 1.5;
+    background-color: #f4fdf2;
+    border: 8px solid #c0deb3;
+    border-radius: 2px;
+    padding: 20px;
+    margin: 15px;
+}
+
+#main * {
+    color: #59727b;
+}
+
+#main a {
+    color: #637d5d;
+}

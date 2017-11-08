@@ -6,7 +6,15 @@
     <base href="/"/>
     <title>Stefan programuje - programowanie po godzinach</title>
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/blog.css" rel="stylesheet">
+
+    <link href="css/global.css" rel="stylesheet">
+    <link href="css/header.css" rel="stylesheet">
+    <link href="css/content.css" rel="stylesheet">
+    <link href="css/post.css" rel="stylesheet">
+    <link href="css/post-heading.css" rel="stylesheet">
+    <link href="css/contact.css" rel="stylesheet">
+    <link href="css/sidebar.css" rel="stylesheet">
+    <link href="css/footer.css" rel="stylesheet">
 </head>
 
 <body>
@@ -15,7 +23,7 @@
 <ui-view name="header"></ui-view>
 
 <div class="container">
-    <div class="blog-content">
+    <div id="blog-content">
         <ui-view></ui-view>
 
         <ui-view name="sidebar"></ui-view>
