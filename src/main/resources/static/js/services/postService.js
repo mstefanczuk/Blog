@@ -45,19 +45,6 @@
                     );
             },
 
-            getPostById: function (id) {
-                return $http.get('http://localhost:8080/api/posts/id/' + id)
-                    .then(
-                        function (response) {
-                            return response.data;
-                        },
-                        function (errResponse) {
-                            console.error('Error while getting post by id: ' + id);
-                            return errResponse.data;
-                        }
-                    )
-            },
-
             getPostByTitleUrl: function (titleUrl) {
                 return $http.get('http://localhost:8080/api/posts/title/' + titleUrl)
                     .then(

@@ -7,7 +7,7 @@
 
         return {
             getAllCategories: function () {
-                return $http.get('http://localhost:8080/api/categories/all').then(
+                return $http.get('http://localhost:8080/api/categories').then(
                     function (response) {
                         return response.data;
                     },

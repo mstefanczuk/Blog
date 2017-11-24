@@ -18,11 +18,6 @@ public class PostController {
         this.postService = postService;
     }
 
-    @GetMapping("/id/{id}")
-    public Post getPostById(@PathVariable Long id) {
-        return postService.findById(id);
-    }
-
     @GetMapping("/latest5")
     public List<Post> getLatest5Posts() {
         return postService.findLatest5();
