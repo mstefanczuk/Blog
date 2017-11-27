@@ -5,9 +5,11 @@
 
     blogApp.factory('postService', ['$http', function ($http) {
 
+        var restApiUrl = 'http://localhost:8080/api/posts';
+
         return {
             getLatest5Posts: function () {
-                return $http.get('http://localhost:8080/api/posts/latest5')
+                return $http.get(restApiUrl + '/latest5')
                     .then(
                         function (response) {
                             return response.data;
@@ -20,7 +22,7 @@
             },
 
             getNext6FromPage: function (page) {
-                return $http.get('http://localhost:8080/api/posts/page/' + page)
+                return $http.get(restApiUrl + '/page/' + page)
                     .then(
                         function (response) {
                             return response.data;
@@ -33,7 +35,7 @@
             },
 
             getNext6ByCategoryNameUrlFromPage: function (categoryName, page) {
-                return $http.get('http://localhost:8080/api/posts/category/' + categoryName + '/page/' + page)
+                return $http.get(restApiUrl + '/category/' + categoryName + '/page/' + page)
                     .then(
                         function (response) {
                             return response.data;
@@ -46,7 +48,7 @@
             },
 
             getPostByTitleUrl: function (titleUrl) {
-                return $http.get('http://localhost:8080/api/posts/title/' + titleUrl)
+                return $http.get(restApiUrl + '/title/' + titleUrl)
                     .then(
                         function (response) {
                             return response.data;

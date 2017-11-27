@@ -54,12 +54,14 @@
 
             .state('blog.about', {
                 url: "/blog",
-                templateUrl: "views/about.html"
+                templateUrl: "views/about.html",
+                controller: "aboutController as aboutCtrl"
             })
 
             .state('blog.author', {
                 url: "/autor",
-                templateUrl: "views/author.html"
+                templateUrl: "views/author.html",
+                controller: "authorController as authorCtrl"
             })
 
             .state('blog.categories', {

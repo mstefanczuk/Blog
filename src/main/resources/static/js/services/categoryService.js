@@ -3,11 +3,13 @@
 
     var blogApp = angular.module('blog');
 
-    blogApp.factory('categoryService', ['$http', '$q', function ($http) {
+    blogApp.factory('categoryService', ['$http', function ($http) {
+
+        var restApiUrl = 'http://localhost:8080/api/categories';
 
         return {
             getAllCategories: function () {
-                return $http.get('http://localhost:8080/api/categories').then(
+                return $http.get(restApiUrl).then(
                     function (response) {
                         return response.data;
                     },
