@@ -1,6 +1,7 @@
 package pl.stefanprogramuje.blog.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import pl.stefanprogramuje.blog.domain.Post;
 import pl.stefanprogramuje.blog.service.PostService;
@@ -19,23 +20,29 @@ public class PostController {
     }
 
     @GetMapping("/latest5")
-    public List<Post> getLatest5Posts() {
-        return postService.findLatest5();
+    public ResponseEntity<List<Post>> getLatest5Posts() {
+        return ResponseEntity.ok(postService.findLatest5());
     }
 
     @GetMapping("/page/{page}")
-    public List<Post> getNext6PostsFromPage(@PathVariable int page) {
-        return postService.findNext6FromPage(page);
+    public ResponseEntity<List<Post>> getNext6PostsFromPage(@PathVariable int page) {
+        return ResponseEntity.ok(postService.findNext6FromPage(page));
     }
 
     @GetMapping("/title/{titleUrl}")
-    public Post getPostByTitleUrl(@PathVariable String titleUrl) {
-        return postService.findByTitleUrl(titleUrl);
+    public ResponseEntity<Post> getPostByTitleUrl(@PathVariable String titleUrl) {
+        Post post = postService.findByTitleUrl(titleUrl);
+
+        if (post == null) {
+            return ResponseEntity.notFound().build();
+        }
+
+        return ResponseEntity.ok(post);
     }
 
     @GetMapping("/category/{categoryNameUrl}/page/{page}")
-    public List<Post> getNext6PostsByCategoryNameUrlFromPage(@PathVariable String categoryNameUrl,
+    public ResponseEntity<List<Post>> getNext6PostsByCategoryNameUrlFromPage(@PathVariable String categoryNameUrl,
                                                              @PathVariable int page) {
-        return postService.findNext6ByCategoryNameUrlFromPage(categoryNameUrl, page);
+        return ResponseEntity.ok(postService.findNext6ByCategoryNameUrlFromPage(categoryNameUrl, page));
     }
 }

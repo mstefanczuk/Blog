@@ -11,6 +11,7 @@ public class ViewController {
             "/autor",
             "/post/{postTitleUrl:.+}",
             "/posty",
+            "/kategorie",
             "/kategorie/{categoryNameUrl:.+}",
             "/kontakt"
     })
