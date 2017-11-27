@@ -1,11 +1,13 @@
 package pl.stefanprogramuje.blog.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import pl.stefanprogramuje.blog.domain.Post;
 import pl.stefanprogramuje.blog.service.PostService;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController()
@@ -44,5 +46,44 @@ public class PostController {
     public ResponseEntity<List<Post>> getNext6PostsByCategoryNameUrlFromPage(@PathVariable String categoryNameUrl,
                                                              @PathVariable int page) {
         return ResponseEntity.ok(postService.findNext6ByCategoryNameUrlFromPage(categoryNameUrl, page));
+    }
+
+    @PostMapping
+    public ResponseEntity<Post> createPost(@Valid @RequestBody Post post) {
+        if (postService.findByTitleUrl(post.getTitleUrl()) != null) {
+            return ResponseEntity.status(HttpStatus.CONFLICT).build();
+        }
+
+        Post createdPost = postService.create(post);
+        return ResponseEntity.ok(createdPost);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Post> updatePost(@PathVariable Long id, @Valid @RequestBody Post postDetails) {
+        Post currentPost = postService.findById(id);
+        if(currentPost == null) {
+            return ResponseEntity.notFound().build();
+        }
+
+        currentPost.setTitle(postDetails.getTitle());
+        currentPost.setBody(postDetails.getBody());
+        currentPost.setAuthor(postDetails.getAuthor());
+        currentPost.setDate(postDetails.getDate());
+        currentPost.setTitleUrl(postDetails.getTitleUrl());
+        currentPost.setCategory(postDetails.getCategory());
+
+        Post updatedPost = postService.edit(currentPost);
+        return ResponseEntity.ok(updatedPost);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Post> deletePost(@PathVariable Long id) {
+        Post post = postService.findById(id);
+        if(post == null) {
+            return ResponseEntity.notFound().build();
+        }
+
+        postService.deleteById(id);
+        return ResponseEntity.ok().build();
     }
 }

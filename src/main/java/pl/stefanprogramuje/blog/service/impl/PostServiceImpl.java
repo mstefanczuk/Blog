@@ -20,11 +20,6 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
-    public List<Post> findAll() {
-        return postRepository.findAll();
-    }
-
-    @Override
     public List<Post> findLatest5() {
         return postRepository.findAllByOrderByDateDesc(new PageRequest(0, 5));
     }

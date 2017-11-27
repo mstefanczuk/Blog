@@ -6,8 +6,6 @@ import java.util.List;
 
 public interface PostService {
 
-    List<Post> findAll();
-
     List<Post> findLatest5();
 
     List<Post> findNext6FromPage(int page);

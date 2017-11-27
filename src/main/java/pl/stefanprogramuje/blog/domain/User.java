@@ -1,5 +1,8 @@
 package pl.stefanprogramuje.blog.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.persistence.*;
 
 @Entity
@@ -43,10 +46,12 @@ public class User {
         this.username = username;
     }
 
+    @JsonIgnore
     public String getPasswordHash() {
         return passwordHash;
     }
 
+    @JsonProperty
     public void setPasswordHash(String passwordHash) {
         this.passwordHash = passwordHash;
     }
