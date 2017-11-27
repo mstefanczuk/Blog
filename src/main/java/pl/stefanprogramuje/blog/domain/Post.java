@@ -1,5 +1,6 @@
 package pl.stefanprogramuje.blog.domain;
 
+import lombok.Data;
 import org.hibernate.validator.constraints.NotBlank;
 
 import javax.persistence.*;
@@ -7,6 +8,7 @@ import java.util.Date;
 
 @Entity
 @Table(name = "posts")
+@Data
 public class Post {
 
     @Id
@@ -33,85 +35,4 @@ public class Post {
 
     @ManyToOne(fetch = FetchType.EAGER)
     private Category category;
-
-    public Post() {
-    }
-
-    public Post(String title, String body, User author, Date date, String titleUrl, Category category) {
-        this.title = title;
-        this.body = body;
-        this.author = author;
-        this.date = date;
-        this.titleUrl = titleUrl;
-        this.category = category;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getBody() {
-        return body;
-    }
-
-    public void setBody(String body) {
-        this.body = body;
-    }
-
-    public User getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(User author) {
-        this.author = author;
-    }
-
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
-    }
-
-    public String getTitleUrl() {
-        return titleUrl;
-    }
-
-    public void setTitleUrl(String titleUrl) {
-        this.titleUrl = titleUrl;
-    }
-
-    public Category getCategory() {
-        return category;
-    }
-
-    public void setCategory(Category category) {
-        this.category = category;
-    }
-
-    @Override
-    public String toString() {
-        return "Post{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                ", body='" + body + '\'' +
-                ", author=" + author +
-                ", date=" + date +
-                ", titleUrl='" + titleUrl + '\'' +
-                ", category=" + category +
-                '}';
-    }
 }

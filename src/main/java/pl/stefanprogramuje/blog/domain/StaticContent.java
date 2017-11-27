@@ -1,14 +1,14 @@
 package pl.stefanprogramuje.blog.domain;
 
-import lombok.*;
+import lombok.Data;
 import org.hibernate.validator.constraints.NotBlank;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name = "categories")
+@Table(name = "static_content")
 @Data
-public class Category {
+public class StaticContent {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,7 +18,7 @@ public class Category {
     @NotBlank
     private String name;
 
-    @Column(length = 100)
-    @NotBlank
-    private String nameUrl;
+    @Lob
+    @Column(nullable = false)
+    private String body;
 }
