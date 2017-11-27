@@ -6,4 +6,6 @@ import pl.stefanprogramuje.blog.domain.Category;
 
 @Repository
 public interface CategoryRepository extends JpaRepository<Category, Long> {
+
+    Category findByNameUrl(String nameUrl);
 }

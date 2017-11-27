@@ -10,6 +10,8 @@ public interface CategoryService {
 
     Category findById(Long id);
 
+    Category findByNameUrl(String nameUrl);
+
     Category create(Category category);
 
     Category edit(Category category);

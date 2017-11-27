@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import pl.stefanprogramuje.blog.domain.Category;
 import pl.stefanprogramuje.blog.service.CategoryService;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -22,7 +23,49 @@ public class CategoryController {
     }
 
     @GetMapping
-    public List<Category> getAllCategories() {
-        return categoryService.findAll();
+    public ResponseEntity<List<Category>> getAllCategories() {
+        List<Category> categories = categoryService.findAll();
+
+        if (categories.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+        }
+
+        return ResponseEntity.ok(categories);
+    }
+
+    @PostMapping
+    public ResponseEntity<Category> createCategory(@Valid @RequestBody Category category) {
+        if (categoryService.findByNameUrl(category.getNameUrl()) != null) {
+            return ResponseEntity.status(HttpStatus.CONFLICT).build();
+        }
+
+        Category createdCategory = categoryService.create(category);
+        return ResponseEntity.ok(createdCategory);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Category> updateCategory(@PathVariable Long id, @Valid @RequestBody Category categoryDetails) {
+        Category currentCategory = categoryService.findById(id);
+        if (currentCategory == null) {
+            return ResponseEntity.notFound().build();
+        }
+
+        currentCategory.setName(categoryDetails.getName());
+        currentCategory.setNameUrl(categoryDetails.getNameUrl());
+
+        Category updatedCategory = categoryService.edit(currentCategory);
+        return ResponseEntity.ok(updatedCategory);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Category> deleteCategory(@PathVariable Long id) {
+        Category category = categoryService.findById(id);
+
+        if(category == null) {
+            return ResponseEntity.notFound().build();
+        }
+
+        categoryService.deleteById(id);
+        return ResponseEntity.ok().build();
     }
 }

@@ -1,5 +1,7 @@
 package pl.stefanprogramuje.blog.domain;
 
+import org.hibernate.validator.constraints.NotBlank;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -11,7 +13,8 @@ public class Post {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, length = 300)
+    @Column(length = 300)
+    @NotBlank
     private String title;
 
     @Lob
@@ -24,7 +27,8 @@ public class Post {
     @Column(nullable = false)
     private Date date;
 
-    @Column(nullable = false, length = 300, unique = true)
+    @Column(length = 300, unique = true)
+    @NotBlank
     private String titleUrl;
 
     @ManyToOne(fetch = FetchType.EAGER)

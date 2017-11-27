@@ -1,5 +1,7 @@
 package pl.stefanprogramuje.blog.domain;
 
+import org.hibernate.validator.constraints.NotBlank;
+
 import javax.persistence.*;
 
 @Entity
@@ -10,10 +12,12 @@ public class Category {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, length = 100)
+    @Column(length = 100)
+    @NotBlank
     private String name;
 
-    @Column(nullable = false, length = 100)
+    @Column(length = 100)
+    @NotBlank
     private String nameUrl;
 
     public Category() {

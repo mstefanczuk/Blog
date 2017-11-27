@@ -8,7 +8,6 @@ public class Email {
     public static final String SUCCESS = "SUCCESS";
     public static final String ERROR = "ERROR";
 
-    @NotNull
     @org.hibernate.validator.constraints.Email
     private String from;
     private String subject;
