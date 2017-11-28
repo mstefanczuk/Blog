@@ -2,11 +2,7 @@
     <h4>O AUTORZE</h4>
     <div class="sidebar-container">
         <a ui-sref="blog.author" scroll-top-on-click><img id="author-img" src="images/author.png"></a>
-        <p>
-            Autorem tego bloga jest Stefan. Opis testowy. Opis testowy. Opis testowy. Opis testowy.
-            Opis testowy. Opis testowy. Opis testowy. Opis testowy. Opis testowy. Opis testowy. Opis testowy.
-            Opis testowy. Opis testowy. Opis testowy. Opis testowy. Opis testowy. Opis testowy. Opis testowy.
-        </p>
+        <div ng-bind-html="sidebarCtrl.authorDescription"></div>
 
     </div>
     <h4>OSTATNIE POSTY</h4>

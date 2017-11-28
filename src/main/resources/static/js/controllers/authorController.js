@@ -5,12 +5,12 @@
 
     blogApp.controller('authorController', function (staticContentService, $sce) {
             var self = this;
-            self.staticContentName = 'author';
+            self.authorDescriptionStaticContentName = 'author';
 
             loadContent();
 
             function loadContent() {
-                staticContentService.getStaticContentByName(self.staticContentName).then(
+                staticContentService.getStaticContentByName(self.authorDescriptionStaticContentName).then(
                     function (response) {
                         self.content = $sce.trustAsHtml(response.body);
                     }
