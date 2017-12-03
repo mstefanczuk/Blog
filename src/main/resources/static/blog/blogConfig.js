@@ -1,16 +1,14 @@
 (function () {
     'use strict';
 
-    var blogApp = angular.module('blog', ["ui.router", "duScroll", "ngAnimate"]);
+    var blogApp = angular.module('blog', ["app"]);
 
-    blogApp.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
-
-        $locationProvider.html5Mode(true);
+    blogApp.config(function ($stateProvider, $urlRouterProvider) {
 
         $urlRouterProvider.otherwise("/");
 
         $stateProvider
-            .state('blog', {
+            .state('blog.main', {
                 abstract: true,
                 views: {
                     masthead: {
@@ -22,7 +20,7 @@
                     },
 
                     '': {
-                        templateUrl: "blog/layout/main.html"
+                        templateUrl: "blog/layout/content.html"
                     },
 
                     sidebar: {
@@ -41,7 +39,7 @@
                 }
             })
 
-            .state('blog.home', {
+            .state('blog.main.home', {
                 url: "/",
                 templateUrl: "blog/posts/posts.html",
                 controller: "postHeadingsController as postHeadingsCtrl",
@@ -52,19 +50,19 @@
                 }
             })
 
-            .state('blog.about', {
+            .state('blog.main.about', {
                 url: "/blog",
                 templateUrl: "blog/about/about.html",
                 controller: "aboutController as aboutCtrl"
             })
 
-            .state('blog.author', {
+            .state('blog.main.author', {
                 url: "/autor",
                 templateUrl: "blog/author/author.html",
                 controller: "authorController as authorCtrl"
             })
 
-            .state('blog.categories', {
+            .state('blog.main.categories', {
                 url: "/kategorie",
                 templateUrl: "blog/categories/categories.html",
                 controller: "categoryController as categoryCtrl",
@@ -75,13 +73,13 @@
                 }
             })
 
-            .state('blog.contact', {
+            .state('blog.main.contact', {
                 url: "/kontakt",
                 templateUrl: "blog/contact/contact.html",
                 controller: "emailController as emailCtrl"
             })
 
-            .state('blog.postsByCategory', {
+            .state('blog.main.postsByCategory', {
                 url: "/kategorie/{categoryNameUrl:.+}",
                 templateUrl: "blog/posts/posts-by-category.html",
                 controller: "postHeadingsByCategoryController as postHeadingsByCategoryCtrl",
@@ -92,7 +90,7 @@
                 }
             })
 
-            .state('blog.post', {
+            .state('blog.main.post', {
                 url: "/post/{postTitleUrl:.+}",
                 templateUrl: "blog/posts/post.html",
                 controller: "postDetailsController as postDetailsCtrl",
