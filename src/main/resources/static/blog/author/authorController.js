@@ -1,9 +1,9 @@
 (function () {
     'use strict';
 
-    var blogApp = angular.module('blog');
+    var blogModule = angular.module('blog');
 
-    blogApp.controller('authorController', function (staticContentService, $sce) {
+    blogModule.controller('authorController', function (staticContentService, $sce) {
             var self = this;
             self.authorDescriptionStaticContentName = 'author';
 

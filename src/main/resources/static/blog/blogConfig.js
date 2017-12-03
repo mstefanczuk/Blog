@@ -1,9 +1,9 @@
 (function () {
     'use strict';
 
-    var blogApp = angular.module('blog', ["app"]);
+    var blogModule = angular.module('blog', ["app"]);
 
-    blogApp.config(function ($stateProvider, $urlRouterProvider) {
+    blogModule.config(function ($stateProvider, $urlRouterProvider) {
 
         $urlRouterProvider.otherwise("/");
 

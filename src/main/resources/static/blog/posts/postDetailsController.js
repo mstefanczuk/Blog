@@ -1,9 +1,9 @@
 (function () {
     'use strict';
 
-    var blogApp = angular.module('blog');
+    var blogModule = angular.module('blog');
 
-    blogApp.controller('postDetailsController', function (postDetails) {
+    blogModule.controller('postDetailsController', function (postDetails) {
         var self = this;
 
         self.postsByCategoryUrlPrefix = 'kategorie/';

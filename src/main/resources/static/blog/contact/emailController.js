@@ -1,9 +1,9 @@
 (function () {
     'use strict';
 
-    var blogApp = angular.module('blog');
+    var blogModule = angular.module('blog');
 
-    blogApp.controller('emailController', function (emailService, $scope) {
+    blogModule.controller('emailController', function (emailService, $scope) {
             var self = this;
 
             self.from = "";
