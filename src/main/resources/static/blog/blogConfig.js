@@ -14,24 +14,24 @@
                 abstract: true,
                 views: {
                     masthead: {
-                        templateUrl: "views/masthead.html"
+                        templateUrl: "blog/layout/masthead.html"
                     },
 
                     header: {
-                        templateUrl: "views/header.html"
+                        templateUrl: "blog/layout/header.html"
                     },
 
                     '': {
-                        templateUrl: "views/main.html"
+                        templateUrl: "blog/layout/main.html"
                     },
 
                     sidebar: {
-                        templateUrl: "views/sidebar.html",
+                        templateUrl: "blog/layout/sidebar/sidebar.html",
                         controller: 'sidebarController as sidebarCtrl'
                     },
 
                     footer: {
-                        templateUrl: "views/footer.html"
+                        templateUrl: "blog/layout/footer.html"
                     }
                 },
                 resolve: {
@@ -43,7 +43,7 @@
 
             .state('blog.home', {
                 url: "/",
-                templateUrl: "views/posts.html",
+                templateUrl: "blog/posts/posts.html",
                 controller: "postHeadingsController as postHeadingsCtrl",
                 resolve: {
                     first6Posts: ['postService', function (postService) {
@@ -54,19 +54,19 @@
 
             .state('blog.about', {
                 url: "/blog",
-                templateUrl: "views/about.html",
+                templateUrl: "blog/about/about.html",
                 controller: "aboutController as aboutCtrl"
             })
 
             .state('blog.author', {
                 url: "/autor",
-                templateUrl: "views/author.html",
+                templateUrl: "blog/author/author.html",
                 controller: "authorController as authorCtrl"
             })
 
             .state('blog.categories', {
                 url: "/kategorie",
-                templateUrl: "views/categories.html",
+                templateUrl: "blog/categories/categories.html",
                 controller: "categoryController as categoryCtrl",
                 resolve: {
                     allCategories: ['categoryService', function (categoryService) {
@@ -77,13 +77,13 @@
 
             .state('blog.contact', {
                 url: "/kontakt",
-                templateUrl: "views/contact.html",
+                templateUrl: "blog/contact/contact.html",
                 controller: "emailController as emailCtrl"
             })
 
             .state('blog.postsByCategory', {
                 url: "/kategorie/{categoryNameUrl:.+}",
-                templateUrl: "views/posts-by-category.html",
+                templateUrl: "blog/posts/posts-by-category.html",
                 controller: "postHeadingsByCategoryController as postHeadingsByCategoryCtrl",
                 resolve: {
                     first6PostsByCategory: ['postService', '$stateParams', function (postService, $stateParams) {
@@ -94,7 +94,7 @@
 
             .state('blog.post', {
                 url: "/post/{postTitleUrl:.+}",
-                templateUrl: "views/post.html",
+                templateUrl: "blog/posts/post.html",
                 controller: "postDetailsController as postDetailsCtrl",
                 resolve: {
                     postDetails: ['postService', '$stateParams', function (postService, $stateParams) {
