@@ -1,9 +1,9 @@
 (function () {
     'use strict';
 
-    var blogApp = angular.module('blog');
+    var blogModule = angular.module('blog');
 
-    blogApp.controller('sidebarController', function (latest5Posts, $sce, staticContentService) {
+    blogModule.controller('sidebarController', function (latest5Posts, $sce, staticContentService) {
 
         var self = this;
 

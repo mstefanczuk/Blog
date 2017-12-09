@@ -1,9 +1,9 @@
 (function () {
     'use strict';
 
-    var blogApp = angular.module('blog');
+    var blogModule = angular.module('blog');
 
-    blogApp.factory('emailService', ['$http', function ($http) {
+    blogModule.factory('emailService', ['$http', function ($http) {
 
         var restApiUrl = 'http://localhost:8080/api/email';
 

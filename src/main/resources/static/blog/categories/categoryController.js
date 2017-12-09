@@ -1,9 +1,9 @@
 (function () {
     'use strict';
 
-    var blogApp = angular.module('blog');
+    var blogModule = angular.module('blog');
 
-    blogApp.controller('categoryController', function (allCategories) {
+    blogModule.controller('categoryController', function (allCategories) {
             var self = this;
 
             self.categories = allCategories;

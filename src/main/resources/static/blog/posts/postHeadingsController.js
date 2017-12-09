@@ -1,9 +1,9 @@
 (function () {
     'use strict';
 
-    var blogApp = angular.module('blog');
+    var blogModule = angular.module('blog');
 
-    blogApp.controller('postHeadingsController', function (first6Posts, postService) {
+    blogModule.controller('postHeadingsController', function (first6Posts, postService) {
 
         var self = this;
 

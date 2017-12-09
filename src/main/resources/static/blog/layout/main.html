@@ -1,5 +1,13 @@
-<div id="main" class="col-sm-8">
+<ui-view name="masthead"></ui-view>
 
-    <div ui-view></div>
+<ui-view name="header"></ui-view>
 
+<div class="container">
+    <div id="blog-content">
+        <ui-view></ui-view>
+
+        <ui-view name="sidebar"></ui-view>
+    </div>
 </div>
+
+<ui-view name="footer"></ui-view>

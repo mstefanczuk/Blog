@@ -1,9 +1,9 @@
 (function () {
     'use strict';
 
-    var blogApp = angular.module('blog');
+    var blogModule = angular.module('blog');
 
-    blogApp.factory('staticContentService', ['$http', function ($http) {
+    blogModule.factory('staticContentService', ['$http', function ($http) {
 
         var restApiUrl = 'http://localhost:8080/api/static-content/';
 
