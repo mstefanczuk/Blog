@@ -1,9 +1,9 @@
 (function () {
     'use strict';
 
-    var blogModule = angular.module('blog');
+    var appModule = angular.module('app');
 
-    blogModule.animation('.fadein', function () {
+    appModule.animation('.fadein', function () {
         return {
             enter: function (element, done) {
                 $(element).hide().fadeIn(800, done);
