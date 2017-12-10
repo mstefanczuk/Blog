@@ -1,0 +1,37 @@
+#admin-header {
+    width: 100%;
+    background: #dbeef0;
+}
+
+#admin-header img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#admin-navibar {
+    width: 100%;
+    background-color: #bce1ae;
+    z-index: 100000;
+    margin-top: 20px;
+}
+
+#admin-navibar .container {
+    text-align: center;
+}
+
+#admin-navibar .navigation-bar-item {
+    color: #54694f;
+}
+
+#admin-navibar .navigation-bar-item:hover,
+#admin-navibar .navigation-bar-item:focus {
+    color: #59727b;
+    text-decoration: none;
+}
+
+#admin-navibar .navigation-bar-item .active {
+    color: #59727b;
+}

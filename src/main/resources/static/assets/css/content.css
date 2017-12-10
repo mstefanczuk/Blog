@@ -1,8 +1,4 @@
-#blog-content {
-    padding-top: 20px;
-}
-
-#main {
+.panel {
     font-size: 13px;
     line-height: 1.5;
     background-color: #f4fdf2;
@@ -12,10 +8,10 @@
     margin: 15px;
 }
 
-#main * {
+.panel * {
     color: #59727b;
 }
 
-#main a {
+.panel a {
     color: #637d5d;
 }

@@ -19,17 +19,13 @@
 
                     '': {
                         templateUrl: "admin/layout/content.html"
-                    },
-
-                    footer: {
-                        templateUrl: "admin/layout/footer.html"
                     }
                 }
             })
 
             .state('admin.main.home', {
                 url: "/admin",
-                templateUrl: "admin/test.html"
+                templateUrl: "admin/home/home.html"
             })
     });
 })();
