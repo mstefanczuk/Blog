@@ -1,7 +1,7 @@
 (function () {
     'use strict';
 
-    var appModule = angular.module('app', ["ui.router", "duScroll", "ngAnimate"]);
+    var appModule = angular.module('app', ["blog", "admin", "ui.router", "duScroll", "ngAnimate"]);
 
     appModule.config(function ($stateProvider, $locationProvider) {
 
@@ -11,6 +11,11 @@
             .state('blog', {
                 abstract: true,
                 templateUrl: "blog/layout/main.html"
+            })
+
+            .state('admin', {
+                abstract: true,
+                templateUrl: "admin/layout/main.html"
             })
     });
 })();
