@@ -3,9 +3,7 @@
 
     var blogModule = angular.module('blog', ["app"]);
 
-    blogModule.config(function ($stateProvider, $urlRouterProvider) {
-
-        $urlRouterProvider.otherwise("/");
+    blogModule.config(function ($stateProvider) {
 
         $stateProvider
             .state('blog.main', {
