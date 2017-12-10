@@ -1,9 +1,9 @@
 (function () {
     'use strict';
 
-    var blogModule = angular.module('blog');
+    var appModule = angular.module('app');
 
-    blogModule.factory('categoryService', ['$http', function ($http) {
+    appModule.factory('categoryService', ['$http', function ($http) {
 
         var restApiUrl = 'http://localhost:8080/api/categories';
 

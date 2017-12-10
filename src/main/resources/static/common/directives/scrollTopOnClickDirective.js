@@ -1,9 +1,9 @@
 (function () {
     'use strict';
 
-    var blogModule = angular.module('blog');
+    var appModule = angular.module('app');
 
-    blogModule.directive('scrollTopOnClick', ['$document', function ($document) {
+    appModule.directive('scrollTopOnClick', ['$document', function ($document) {
         return {
             restrict: 'A',
             link: function (scope, ele, attr) {
