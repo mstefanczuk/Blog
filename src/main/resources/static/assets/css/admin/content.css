@@ -1,0 +1,28 @@
+#admin-content {
+    height: 65%;
+}
+
+.admin-panels-container {
+    width:100%;
+    height: 100%;
+    display: flex;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.admin-panels-container .panel {
+    width: 50%;
+    resize: horizontal;
+    margin-left: 7px;
+    margin-right: 7px;
+    flex: 1 1 auto;
+}
+
+.left-panel {
+    float: left;
+    overflow: auto;
+}
+
+.right-panel {
+    float: right;
+}

@@ -1,0 +1,10 @@
+@media (min-width: 486px) {
+    #masthead {
+        position: fixed;
+        background-color: rgba(123, 168, 170, 0.75);
+    }
+
+    #header img {
+        margin-top: 40px;
+    }
+}

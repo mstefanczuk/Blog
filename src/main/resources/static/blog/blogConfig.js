@@ -1,11 +1,9 @@
 (function () {
     'use strict';
 
-    var blogModule = angular.module('blog', ["app"]);
+    var blogModule = angular.module('blog', ["ui.router", "duScroll", "ngAnimate"]);
 
-    blogModule.config(function ($stateProvider, $urlRouterProvider) {
-
-        $urlRouterProvider.otherwise("/");
+    blogModule.config(function ($stateProvider) {
 
         $stateProvider
             .state('blog.main', {

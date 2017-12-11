@@ -1,0 +1,14 @@
+#footer {
+    padding: 40px 0;
+    color: #637d5d;
+    text-align: center;
+    background-color: #cbe0bf;
+}
+
+#footer a {
+    color: #59727b;
+}
+
+#footer p:last-child {
+    margin-bottom: 0;
+}
