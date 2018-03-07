@@ -24,7 +24,7 @@ public class StaticContentController {
         StaticContent staticContent = staticContentService.findByName(name);
 
         if (staticContent == null) {
-            return ResponseEntity.notFound().build();
+            return ResponseEntity.noContent().build();
         }
 
         return ResponseEntity.ok(staticContent);
@@ -35,7 +35,7 @@ public class StaticContentController {
         StaticContent currentStaticContent = staticContentService.findById(id);
 
         if (currentStaticContent == null) {
-            return ResponseEntity.notFound().build();
+            return ResponseEntity.noContent().build();
         }
 
         currentStaticContent.setName(staticContentDetails.getName());

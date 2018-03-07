@@ -36,7 +36,7 @@ public class PostController {
         Post post = postService.findByTitleUrl(titleUrl);
 
         if (post == null) {
-            return ResponseEntity.notFound().build();
+            return ResponseEntity.noContent().build();
         }
 
         return ResponseEntity.ok(post);
@@ -62,7 +62,7 @@ public class PostController {
     public ResponseEntity<Post> updatePost(@PathVariable Long id, @Valid @RequestBody Post postDetails) {
         Post currentPost = postService.findById(id);
         if(currentPost == null) {
-            return ResponseEntity.notFound().build();
+            return ResponseEntity.noContent().build();
         }
 
         currentPost.setTitle(postDetails.getTitle());
@@ -80,7 +80,7 @@ public class PostController {
     public ResponseEntity<Post> deletePost(@PathVariable Long id) {
         Post post = postService.findById(id);
         if(post == null) {
-            return ResponseEntity.notFound().build();
+            return ResponseEntity.noContent().build();
         }
 
         postService.deleteById(id);

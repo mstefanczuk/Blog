@@ -27,7 +27,7 @@ public class CategoryController {
         List<Category> categories = categoryService.findAll();
 
         if (categories.isEmpty()) {
-            return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+            return ResponseEntity.noContent().build();
         }
 
         return ResponseEntity.ok(categories);
@@ -47,7 +47,7 @@ public class CategoryController {
     public ResponseEntity<Category> updateCategory(@PathVariable Long id, @Valid @RequestBody Category categoryDetails) {
         Category currentCategory = categoryService.findById(id);
         if (currentCategory == null) {
-            return ResponseEntity.notFound().build();
+            return ResponseEntity.noContent().build();
         }
 
         currentCategory.setName(categoryDetails.getName());
@@ -62,7 +62,7 @@ public class CategoryController {
         Category category = categoryService.findById(id);
 
         if(category == null) {
-            return ResponseEntity.notFound().build();
+            return ResponseEntity.noContent().build();
         }
 
         categoryService.deleteById(id);
