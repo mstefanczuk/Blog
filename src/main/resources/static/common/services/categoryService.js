@@ -1,11 +1,14 @@
 (function () {
     'use strict';
 
+    const REST_URL_API = 'http://localhost:8080/api/categories';
+    const ERROR_MESSAGE = 'Error while getting all categories';
+
     var appModule = angular.module('app');
 
     appModule.factory('categoryService', ['$http', function ($http) {
 
-        var restApiUrl = 'http://localhost:8080/api/categories';
+        var restApiUrl = REST_URL_API;
 
         return {
             getAllCategories: function () {
@@ -14,7 +17,7 @@
                         return response.data;
                     },
                     function (errRespone) {
-                        console.error('Error while getting all categories');
+                        console.error(ERROR_MESSAGE);
                         return errRespone.data;
                     }
                 )

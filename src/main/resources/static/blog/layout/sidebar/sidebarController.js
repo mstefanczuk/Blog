@@ -1,5 +1,8 @@
 (function () {
     'use strict';
+    
+    const POST_ULR_PREFIX = "post/";
+    const AUTHOR_DESCRIPTION_STATIC_CONTENT_NAME = 'authorSidebar';
 
     var blogModule = angular.module('blog');
 
@@ -7,14 +10,12 @@
         var self = this;
 
         self.latest5Posts = latest5Posts;
-        self.postUrlPrefix = "post/";
-
-        self.blogDescriptionStaticContentName = 'authorSidebar';
+        self.postUrlPrefix = POST_ULR_PREFIX;
 
         loadContent();
 
         function loadContent() {
-            staticContentService.getStaticContentByName(self.blogDescriptionStaticContentName).then(
+            staticContentService.getStaticContentByName(AUTHOR_DESCRIPTION_STATIC_CONTENT_NAME).then(
                 function (response) {
                     self.authorDescription = $sce.trustAsHtml(response.body);
                 }

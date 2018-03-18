@@ -1,13 +1,15 @@
 (function () {
     'use strict';
 
+    const POST_URL_PREFIX = "post/";
+
     var blogModule = angular.module('blog');
 
     blogModule.controller('postHeadingsController', function (first6Posts, postService) {
 
         var self = this;
 
-        self.postUrlPrefix = "post/";
+        self.postUrlPrefix = POST_URL_PREFIX;
         self.postPagesCounter = 1;
         self.postsHeadingsList = first6Posts;
 

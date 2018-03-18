@@ -1,17 +1,18 @@
 (function () {
     'use strict';
 
+    const BUTTON_TEXT_VALUE_SEND = "Wyślij";
+    const BUTTON_TEXT_VALUE_WAIT = "Czekaj...";
+    const NOTIFICATION_MESSAGE_SENT = "Wiadomość została wysłana";
+    const NOTIFICATION_MESSAGE_ERROR = "Wysyłanie nie powiodło się";
+    const NOTIFICATION_MESSAGE_EMAIL_REQUIRED = "Adres email jest wymagany";
+    const NOTIFICATION_MESSAGE_INVALID_EMAIL = "Niepoprawna forma adresu email";
+    const RESPONSE_SUCCESS_STATUS = "SUCCESS";
+
     var blogModule = angular.module('blog');
 
     blogModule.controller('emailController', function (emailService, notificationService, $scope) {
             var self = this;
-
-            const BUTTON_TEXT_VALUE_SEND = "Wyślij";
-            const BUTTON_TEXT_VALUE_WAIT = "Czekaj...";
-            const NOTIFICATION_MESSAGE_SENT = "Wiadomość została wysłana";
-            const NOTIFICATION_MESSAGE_ERROR = "Wysyłanie nie powiodło się";
-            const NOTIFICATION_MESSAGE_EMAIL_REQUIRED = "Adres email jest wymagany";
-            const NOTIFICATION_MESSAGE_INVALID_EMAIL = "Niepoprawna forma adresu email";
 
             self.from = "";
             self.content = "";
@@ -31,7 +32,7 @@
 
                 emailService.send(self.from, JSON.stringify({from: self.from, content: self.content}))
                     .then(function (response) {
-                        if (response.status === "SUCCESS") {
+                        if (response.status === RESPONSE_SUCCESS_STATUS) {
                             self.notificationMessage = NOTIFICATION_MESSAGE_SENT;
                         } else {
                             self.notificationMessage = NOTIFICATION_MESSAGE_ERROR;
