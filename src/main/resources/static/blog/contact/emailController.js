@@ -3,54 +3,57 @@
 
     var blogModule = angular.module('blog');
 
-    blogModule.controller('emailController', function (emailService, $scope) {
+    blogModule.controller('emailController', function (emailService, notificationService, $scope) {
             var self = this;
+
+            const BUTTON_TEXT_VALUE_SEND = "Wyślij";
+            const BUTTON_TEXT_VALUE_WAIT = "Czekaj...";
+            const NOTIFICATION_MESSAGE_SENT = "Wiadomość została wysłana";
+            const NOTIFICATION_MESSAGE_ERROR = "Wysyłanie nie powiodło się";
+            const NOTIFICATION_MESSAGE_EMAIL_REQUIRED = "Adres email jest wymagany";
+            const NOTIFICATION_MESSAGE_INVALID_EMAIL = "Niepoprawna forma adresu email";
 
             self.from = "";
             self.content = "";
             self.notificationMessage = "";
-            self.submitButtonValue = "Wyślij";
+            self.submitButtonValue = BUTTON_TEXT_VALUE_SEND;
+            self.event = null;
 
             self.sendEmail = function ($event) {
-                // Prevent default error notifications because we use our own
-                $event.preventDefault();
+                self.event = $event;
 
-                if (!fieldsAreOk()) {
-                    showSnackBar();
+                if (!areFieldsValid()) {
+                    showNotification();
                     return;
                 }
 
-                self.submitButtonValue = "Czekaj...";
+                self.submitButtonValue = BUTTON_TEXT_VALUE_WAIT;
 
                 emailService.send(self.from, JSON.stringify({from: self.from, content: self.content}))
                     .then(function (response) {
                         if (response.status === "SUCCESS") {
-                            self.notificationMessage = "Wiadomość została wysłana";
+                            self.notificationMessage = NOTIFICATION_MESSAGE_SENT;
                         } else {
-                            self.notificationMessage = "Wysyłanie nie powiodło się";
+                            self.notificationMessage = NOTIFICATION_MESSAGE_ERROR;
                         }
 
-                        showSnackBar();
-                        self.submitButtonValue = "Wyślij";
+                        showNotification();
+                        self.submitButtonValue = BUTTON_TEXT_VALUE_SEND;
                     });
             };
 
-            function showSnackBar() {
-                var notificationElement = document.getElementById("notification")
-                notificationElement.className = "show";
-                setTimeout(function () {
-                    notificationElement.className = notificationElement.className.replace("show", "");
-                }, 3000);
+            function showNotification() {
+                notificationService.showNotification(self.notificationMessage, self.event);
             }
 
-            function fieldsAreOk() {
+            function areFieldsValid() {
                 if ($scope.contactForm.emailField.$error.required) {
-                    self.notificationMessage = "Adres email jest wymagany";
+                    self.notificationMessage = NOTIFICATION_MESSAGE_EMAIL_REQUIRED;
                     return false;
                 }
 
                 if ($scope.contactForm.emailField.$error.email) {
-                    self.notificationMessage = "Niepoprawna forma adresu email";
+                    self.notificationMessage = NOTIFICATION_MESSAGE_INVALID_EMAIL;
                     return false;
                 }
 

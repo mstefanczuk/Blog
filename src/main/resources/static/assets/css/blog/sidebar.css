@@ -18,13 +18,13 @@
     border-radius: 4px;
     color: #637d5d;
     overflow: auto;
+    box-shadow: 6px 6px 4px rgba(0, 0, 0, .1);
 }
 
 #author-img {
     float: right;
     margin-left: 5px;
     margin-bottom: 5px;
-    border: 8px solid #93babb;
 }
 
 .sidebar-container p:last-child,

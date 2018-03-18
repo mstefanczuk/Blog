@@ -4,8 +4,6 @@
     <textarea name="emailContentField" id="email-content-field" ng-model="emailCtrl.content" placeholder="Treść"
               style="height:200px" maxlength="10000"></textarea>
 
-    <input id="send-email-button" type="submit" value="{{emailCtrl.submitButtonValue}}"
+    <input id="send-email-button" class="submit-button" type="submit" value="{{emailCtrl.submitButtonValue}}"
            ng-click="emailCtrl.sendEmail($event)">
-
-    <div id="notification">{{emailCtrl.notificationMessage}}</div>
 </form>

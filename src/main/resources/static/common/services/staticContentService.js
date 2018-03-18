@@ -15,7 +15,20 @@
                             return response.data;
                         },
                         function (errResponse) {
-                            console.error('Error while getting static content by name:' + name);
+                            console.error('Error while getting static content by name: ' + name);
+                            return errResponse.data;
+                        }
+                    )
+            },
+
+            updateStaticContent: function (id, data) {
+                return $http.put(restApiUrl + id, data)
+                    .then(
+                        function (response) {
+                            return response.data;
+                        },
+                        function (errResponse) {
+                            console.error('Error while updating static content with id: ' + id);
                             return errResponse.data;
                         }
                     )

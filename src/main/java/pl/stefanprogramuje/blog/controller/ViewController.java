@@ -14,7 +14,8 @@ public class ViewController {
             "/kategorie",
             "/kategorie/{categoryNameUrl:.+}",
             "/kontakt",
-            "/admin"
+            "/admin",
+            "/admin/blog"
     })
     public String index() {
         return "forward:/index.html";

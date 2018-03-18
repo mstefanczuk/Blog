@@ -5,8 +5,9 @@
     <meta charset="UTF-8">
     <base href="/"/>
     <title>Stefan programuje - programowanie po godzinach</title>
-    <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/libs/bootstrap.min.css" rel="stylesheet">
     <link href="assets/libs/textAngular.css" rel="stylesheet"/>
+    <link href="assets/libs/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
 
     <link href="assets/css/global.css" rel="stylesheet">
     <link href="assets/css/content.css" rel="stylesheet">
@@ -21,10 +22,12 @@
     <link href="assets/css/blog/header-min.css" rel="stylesheet">
     <link href="assets/css/admin/header.css" rel="stylesheet">
     <link href="assets/css/admin/content.css" rel="stylesheet">
+    <link href="assets/css/admin/about.css" rel="stylesheet">
 </head>
 
 <body>
 <ui-view></ui-view>
+<div id="notification"></div>
 
 <script type="text/javascript" src="assets/libs/angular.min.js"></script>
 <script type="text/javascript" src="assets/libs/angular-ui-router.min.js"></script>
@@ -47,12 +50,15 @@
 <script type="text/javascript" src="blog/posts/postHeadingsController.js"></script>
 <script type="text/javascript" src="blog/posts/postHeadingsByCategoryController.js"></script>
 <script type="text/javascript" src="blog/contact/emailController.js"></script>
-<script type="text/javascript" src="blog/about/aboutController.js"></script>
 <script type="text/javascript" src="blog/author/authorController.js"></script>
+
+<script type="text/javascript" src="blog/contact/emailService.js"></script>
+
+<script type="text/javascript" src="common/controllers/aboutController.js"></script>
 
 <script type="text/javascript" src="common/services/postService.js"></script>
 <script type="text/javascript" src="common/services/categoryService.js"></script>
-<script type="text/javascript" src="blog/contact/emailService.js"></script>
+<script type="text/javascript" src="common/services/notificationService.js"></script>
 <script type="text/javascript" src="common/services/staticContentService.js"></script>
 
 <script type="text/javascript" src="common/directives/scrollTopOnClickDirective.js"></script>
