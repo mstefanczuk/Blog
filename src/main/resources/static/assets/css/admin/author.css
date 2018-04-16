@@ -1,0 +1,31 @@
+.admin-panels-container .panel a {
+    color: #59727b;
+}
+
+.admin-author-sidebar-image-view {
+    grid-area: admin-author-sidebar-l-u;
+    padding-bottom: 10px;
+}
+
+.admin-author-sidebar-image-input {
+    grid-area: admin-author-sidebar-l-b;
+}
+
+.admin-author-sidebar-desc {
+    grid-area: admin-author-sidebar-r;
+}
+
+.admin-author-sidebar-container {
+    display: grid;
+    grid-template-areas:
+        'admin-author-sidebar-l-u admin-author-sidebar-r'
+        'admin-author-sidebar-l-b admin-author-sidebar-r';
+}
+
+#admin-author-sidebar-base64-button {
+    display: none;
+}
+
+.admin-author-sidebar-desc textarea {
+    min-height: 200px;
+}

@@ -1,0 +1,26 @@
+<div class="admin-author-sidebar-container">
+    <div class="admin-author-sidebar-image-view">
+        <figure>
+            <figcaption>Wybrany obraz:</figcaption>
+            <img src="data:image/png;base64, {{adminAuthorCtrl.sidebarImageFile.base64}}"/>
+        </figure>
+        <br>
+        <figure>
+            <figcaption>Aktualny obraz:</figcaption>
+            <img src="data:image/png;base64, {{adminAuthorCtrl.sidebarImageObject.body}}"/>
+        </figure>
+    </div>
+    <div class="admin-author-sidebar-image-input">
+        <label for="admin-author-sidebar-base64-button" class="submit-button">Wybierz obraz</label>
+        <input id="admin-author-sidebar-base64-button" type="file" ng-model="adminAuthorCtrl.sidebarImageFile"
+               base-sixty-four-input>
+        <input class="submit-button" type="submit" value="{{adminAuthorCtrl.submitImageButtonValue}}"
+               ng-click="adminAuthorCtrl.updateSidebarImage($event)">
+    </div>
+    <div class="admin-author-sidebar-desc">
+        <textarea name="authorSidebarDesc" ng-model="adminAuthorCtrl.sidebarDescriptionObject.body"
+                  placeholder="Treść"></textarea>
+        <input class="submit-button" type="submit" value="{{adminAuthorCtrl.submitShortDescButtonValue}}"
+               ng-click="adminAuthorCtrl.updateSidebarDescription($event)">
+    </div>
+</div>

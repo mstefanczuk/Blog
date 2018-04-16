@@ -1,7 +1,7 @@
 (function () {
     'use strict';
 
-    var adminModule = angular.module('admin', ["ui.router", "duScroll", "ngAnimate", "textAngular"]);
+    var adminModule = angular.module('admin', ["ui.router", "duScroll", "ngAnimate", "textAngular", "naif.base64"]);
 
     adminModule.config(function ($stateProvider, $provide) {
 
@@ -32,6 +32,24 @@
                 url: "/admin/blog",
                 templateUrl: "admin/about/about.html",
                 controller: 'aboutController as aboutCtrl'
+            })
+
+            .state('admin.main.author', {
+                url: "/admin/autor",
+                templateUrl: "admin/author/author.html",
+                controller: 'adminAuthorController as adminAuthorCtrl'
+            })
+
+            .state('admin.main.author.short', {
+                url: "/skrocony-opis",
+                templateUrl: "admin/author/sidebar-description.html",
+                controller: 'adminAuthorController as adminAuthorCtrl'
+            })
+
+            .state('admin.main.author.full', {
+                url: "/pelny-opis",
+                templateUrl: "admin/author/full-description.html",
+                controller: 'adminAuthorController as adminAuthorCtrl'
             });
 
         $provide.decorator('taOptions', ['taRegisterTool', 'taToolFunctions', '$delegate',

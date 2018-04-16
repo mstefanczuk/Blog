@@ -1,18 +1,20 @@
 (function () {
     'use strict';
 
-    var blogModule = angular.module('blog');
+    const BUTTON_TEXT_VALUE_SUBMIT = "Zapisz";
+    const BUTTON_TEXT_VALUE_WAIT = "Czekaj...";
+    const BUTTON_TEXT_VALUE_DATA_LOADING = "Ładowanie danych...";
+    const NOTIFICATION_MESSAGE_ERROR = "Jeśli dokonałeś zmian, to coś poszło nie tak :(";
+    const NOTIFICATION_MESSAGE_OK = "Zapisano";
+    const BLOG_DESCRIPTION_STATIC_CONTENT_NAME = "blog";
 
-    blogModule.controller('aboutController', function (staticContentService, notificationService) {
+    var appModule = angular.module('app');
+
+    appModule.controller('aboutController', function (staticContentService, notificationService) {
+
             var self = this;
 
-            const BUTTON_TEXT_VALUE_SUBMIT = "Zatwierdź";
-            const BUTTON_TEXT_VALUE_WAIT = "Czekaj...";
-            const BUTTON_TEXT_VALUE_DATA_LOADING = "Ładowanie danych...";
-            const NOTIFICATION_MESSAGE_ERROR = "Jeśli dokonałeś zmian, to coś poszło nie tak :(";
-            const NOTIFICATION_MESSAGE_OK = "Zmiany zostały zatwierdzone";
-
-            self.blogDescriptionStaticContentName = 'blog';
+            self.blogDescriptionStaticContentName = BLOG_DESCRIPTION_STATIC_CONTENT_NAME;
             self.submitButtonValue = BUTTON_TEXT_VALUE_SUBMIT;
             self.contentObject = null;
             self.notificationMessage = "";
@@ -44,9 +46,9 @@
                 staticContentService.getStaticContentByName(self.blogDescriptionStaticContentName).then(
                     function (response) {
                         self.contentObject = response;
-                    });
 
-                self.submitButtonValue = BUTTON_TEXT_VALUE_SUBMIT;
+                        self.submitButtonValue = BUTTON_TEXT_VALUE_SUBMIT;
+                    });
             }
 
             function showNotification() {
