@@ -14,7 +14,6 @@
 
             let self = this;
 
-            self.blogDescriptionStaticContentName = BLOG_DESCRIPTION_STATIC_CONTENT_NAME;
             self.submitButtonValue = BUTTON_TEXT_VALUE_SUBMIT;
             self.contentObject = null;
             self.notificationMessage = "";
@@ -43,7 +42,7 @@
             function loadContent() {
                 self.submitButtonValue = BUTTON_TEXT_VALUE_DATA_LOADING;
 
-                staticContentService.getStaticContentByName(self.blogDescriptionStaticContentName).then(
+                staticContentService.getStaticContentByName(BLOG_DESCRIPTION_STATIC_CONTENT_NAME).then(
                     function (response) {
                         self.contentObject = response;
 

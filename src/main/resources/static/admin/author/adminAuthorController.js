@@ -11,6 +11,7 @@
     const AUTHOR_SIDEBAR_IMAGE_STATIC_CONTENT_NAME = 'authorSidebarImage';
 
     let adminModule = angular.module('admin');
+
     adminModule.controller('adminAuthorController', function (staticContentService, notificationService, $q) {
             let self = this;
 
@@ -32,8 +33,6 @@
                 self.event = $event;
                 self.submitImageButtonValue = BUTTON_TEXT_VALUE_WAIT;
                 self.sidebarImageObject.body = self.sidebarImageFile.base64;
-
-                console.log(self.sidebarImageObject);
 
                 return staticContentService.updateStaticContent(self.sidebarImageObject.id, self.sidebarImageObject)
                     .then(
@@ -81,16 +80,19 @@
                             } else {
                                 self.notificationMessage = NOTIFICATION_MESSAGE_ERROR;
                             }
+
+                            showNotification();
+                            self.submitFullDescButtonValue = BUTTON_TEXT_VALUE_SUBMIT;
                         }
                     );
             };
 
             function loadContent() {
-                self.submitButtonValue = BUTTON_TEXT_VALUE_DATA_LOADING;
+                setAllButtonsValues(BUTTON_TEXT_VALUE_DATA_LOADING);
 
                 $q.all([loadFullDescription(), loadSidebarDescription(), loadSidebarImage()]).then(
                     function () {
-                        self.submitButtonValue = BUTTON_TEXT_VALUE_SUBMIT;
+                        setAllButtonsValues(BUTTON_TEXT_VALUE_SUBMIT);
                     }
                 );
             }
@@ -121,6 +123,12 @@
 
             function showNotification() {
                 notificationService.showNotification(self.notificationMessage, self.event);
+            }
+
+            function setAllButtonsValues(value) {
+                self.submitImageButtonValue = value;
+                self.submitShortDescButtonValue = value;
+                self.submitFullDescButtonValue = value;
             }
         }
     );

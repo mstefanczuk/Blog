@@ -5,15 +5,17 @@
 
     let blogModule = angular.module('blog');
 
-    blogModule.controller('authorController', function (staticContentService, $sce) {
+    blogModule.controller('authorController', function (staticContentService) {
             let self = this;
+
+            self.content = "";
 
             loadContent();
 
             function loadContent() {
                 staticContentService.getStaticContentByName(AUTHOR_DESCRIPTION_STATIC_CONTENT_NAME).then(
                     function (response) {
-                        self.content = $sce.trustAsHtml(response.body);
+                        self.content = response.body;
                     }
                 )
             }
