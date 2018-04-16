@@ -1,7 +1,7 @@
 (function () {
     'use strict';
 
-    var appModule = angular.module('app');
+    let  appModule = angular.module('app');
 
     appModule.directive('scrollTopOnClick', ['$document', function ($document) {
         return {

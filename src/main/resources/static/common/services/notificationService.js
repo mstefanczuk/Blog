@@ -5,7 +5,7 @@
     const NOTIFICATION_ELEMENT_VISIBLE_CLASS_NAME = "show";
     const NOTIFICATION_ELEMENT_VISIBLE_TIME = 3000;
 
-    var appModule = angular.module('app');
+    let  appModule = angular.module('app');
 
     appModule.factory('notificationService', function () {
         return {
@@ -13,7 +13,7 @@
                 // Prevent default error notifications because we use our own
                 $event.preventDefault();
 
-                var notificationElement = document.getElementById(NOTIFICATION_ELEMENT_ID);
+                let  notificationElement = document.getElementById(NOTIFICATION_ELEMENT_ID);
                 angular.element(notificationElement).text(message);
                 notificationElement.className = NOTIFICATION_ELEMENT_VISIBLE_CLASS_NAME;
                 setTimeout(function () {

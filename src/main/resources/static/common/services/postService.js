@@ -11,11 +11,11 @@
     const ERROR_MESSAGE_NEXT6_BY_CATEGORY = 'Error while getting next 6 posts by category ';
     const ERROR_MESSAGE_TITLE_URL = 'Error while getting post by titleUrl: ';
 
-    var appModule = angular.module('app');
+    let  appModule = angular.module('app');
 
     appModule.factory('postService', ['$http', function ($http) {
 
-        var restApiUrl = REST_API_URL;
+        let  restApiUrl = REST_API_URL;
 
         return {
             getLatest5Posts: function () {

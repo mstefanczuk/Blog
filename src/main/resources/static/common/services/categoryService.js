@@ -4,11 +4,11 @@
     const REST_URL_API = 'http://localhost:8080/api/categories';
     const ERROR_MESSAGE = 'Error while getting all categories';
 
-    var appModule = angular.module('app');
+    let  appModule = angular.module('app');
 
     appModule.factory('categoryService', ['$http', function ($http) {
 
-        var restApiUrl = REST_URL_API;
+        let  restApiUrl = REST_URL_API;
 
         return {
             getAllCategories: function () {
