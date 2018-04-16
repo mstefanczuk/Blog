@@ -6,10 +6,10 @@
         "Września", "Października", "Listopada", "Grudnia"];
     const POSTS_BY_CATEGORY_URL_PREFIX = 'kategorie/';
 
-    var blogModule = angular.module('blog');
+    let blogModule = angular.module('blog');
 
     blogModule.controller('postDetailsController', function (postDetails) {
-        var self = this;
+        let self = this;
 
         self.postsByCategoryUrlPrefix = POSTS_BY_CATEGORY_URL_PREFIX;
 
@@ -22,9 +22,9 @@
     });
 
     function formatDate(date) {
-        var day = date.getDate();
-        var monthIndex = date.getMonth();
-        var year = date.getFullYear();
+        let day = date.getDate();
+        let monthIndex = date.getMonth();
+        let year = date.getFullYear();
 
         return day + ' ' + MONTH_NAMES[monthIndex] + ' ' + year;
     }

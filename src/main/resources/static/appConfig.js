@@ -1,7 +1,7 @@
 (function () {
     'use strict';
 
-    var appModule = angular.module('app', ["blog", "admin"]);
+    let appModule = angular.module('app', ["blog", "admin"]);
 
     appModule.config(function ($stateProvider, $locationProvider) {
 

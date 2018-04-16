@@ -3,11 +3,11 @@
 
     const POST_URL_PREFIX = "post/";
 
-    var blogModule = angular.module('blog');
+    let blogModule = angular.module('blog');
 
     blogModule.controller('postHeadingsController', function (first6Posts, postService) {
 
-        var self = this;
+        let self = this;
 
         self.postUrlPrefix = POST_URL_PREFIX;
         self.postPagesCounter = 1;

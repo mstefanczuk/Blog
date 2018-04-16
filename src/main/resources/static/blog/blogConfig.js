@@ -1,7 +1,7 @@
 (function () {
     'use strict';
 
-    var blogModule = angular.module('blog', ["ui.router", "duScroll", "ngAnimate"]);
+    let blogModule = angular.module('blog', ["ui.router", "duScroll", "ngAnimate"]);
 
     blogModule.config(function ($stateProvider) {
 

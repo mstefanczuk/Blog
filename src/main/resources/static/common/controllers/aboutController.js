@@ -8,11 +8,11 @@
     const NOTIFICATION_MESSAGE_OK = "Zapisano";
     const BLOG_DESCRIPTION_STATIC_CONTENT_NAME = "blog";
 
-    var appModule = angular.module('app');
+    let appModule = angular.module('app');
 
     appModule.controller('aboutController', function (staticContentService, notificationService) {
 
-            var self = this;
+            let self = this;
 
             self.blogDescriptionStaticContentName = BLOG_DESCRIPTION_STATIC_CONTENT_NAME;
             self.submitButtonValue = BUTTON_TEXT_VALUE_SUBMIT;

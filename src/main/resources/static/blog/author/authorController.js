@@ -3,10 +3,10 @@
 
     const AUTHOR_DESCRIPTION_STATIC_CONTENT_NAME = 'author';
 
-    var blogModule = angular.module('blog');
+    let blogModule = angular.module('blog');
 
     blogModule.controller('authorController', function (staticContentService, $sce) {
-            var self = this;
+            let self = this;
 
             loadContent();
 

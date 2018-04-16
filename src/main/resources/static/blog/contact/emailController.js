@@ -9,10 +9,10 @@
     const NOTIFICATION_MESSAGE_INVALID_EMAIL = "Niepoprawna forma adresu email";
     const RESPONSE_SUCCESS_STATUS = "SUCCESS";
 
-    var blogModule = angular.module('blog');
+    let blogModule = angular.module('blog');
 
     blogModule.controller('emailController', function (emailService, notificationService, $scope) {
-            var self = this;
+            let self = this;
 
             self.from = "";
             self.content = "";

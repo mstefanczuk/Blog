@@ -1,7 +1,7 @@
 (function () {
     'use strict';
 
-    var adminModule = angular.module('admin', ["ui.router", "duScroll", "ngAnimate", "textAngular", "naif.base64"]);
+    let adminModule = angular.module('admin', ["ui.router", "duScroll", "ngAnimate", "textAngular", "naif.base64"]);
 
     adminModule.config(function ($stateProvider, $provide) {
 
@@ -62,13 +62,13 @@
                         action: taToolFunctions.imgOnSelectAction
                     },
                     action: function () {
-                        var $editor = this.$editor;
-                        var input = document.createElement('input');
+                        let $editor = this.$editor;
+                        let input = document.createElement('input');
                         input.type = 'file';
                         input.accept = "image/*";
 
                         input.onchange = function () {
-                            var reader = new FileReader();
+                            let reader = new FileReader();
 
                             if (this.files && this.files[0]) {
                                 reader.onload = function (e) {

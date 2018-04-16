@@ -5,7 +5,7 @@
     const SEND_URL_SUFFIX = '/send';
     const ERROR_MESSAGE = 'Error while sending an email';
 
-    var blogModule = angular.module('blog');
+    let blogModule = angular.module('blog');
 
     blogModule.factory('emailService', ['$http', function ($http) {
 
