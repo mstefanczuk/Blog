@@ -3,21 +3,38 @@
     
     const POST_ULR_PREFIX = "post/";
     const AUTHOR_DESCRIPTION_STATIC_CONTENT_NAME = 'authorSidebar';
+    const AUTHOR_IMAGE_STATIC_CONTENT_NAME = 'authorSidebarImage';
 
-    var blogModule = angular.module('blog');
+    let blogModule = angular.module('blog');
 
-    blogModule.controller('sidebarController', function (latest5Posts, $sce, staticContentService) {
-        var self = this;
+    blogModule.controller('sidebarController', function (latest5Posts, staticContentService) {
+        let self = this;
 
         self.latest5Posts = latest5Posts;
         self.postUrlPrefix = POST_ULR_PREFIX;
 
+        self.authorDescription = "";
+        self.authorImageAsBase64 = "";
+
         loadContent();
 
         function loadContent() {
+            loadDescription();
+            loadImage();
+        }
+
+        function loadDescription() {
             staticContentService.getStaticContentByName(AUTHOR_DESCRIPTION_STATIC_CONTENT_NAME).then(
                 function (response) {
-                    self.authorDescription = $sce.trustAsHtml(response.body);
+                    self.authorDescription = response.body;
+                }
+            )
+        }
+
+        function loadImage() {
+            staticContentService.getStaticContentByName(AUTHOR_IMAGE_STATIC_CONTENT_NAME).then(
+                function (response) {
+                    self.authorImageAsBase64 = response.body;
                 }
             )
         }

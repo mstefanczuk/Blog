@@ -1,7 +1,9 @@
 <div id="sidebar" class="col-sm-3 col-sm-offset-1">
     <h4>O AUTORZE</h4>
     <div class="sidebar-container">
-        <a ui-sref="blog.main.author" scroll-top-on-click><img id="author-img" src="assets/img/author.png"></a>
+        <a ui-sref="blog.main.author" scroll-top-on-click>
+            <img id="author-img" src="data:image/png;base64, {{sidebarCtrl.authorImageAsBase64}}"/>
+        </a>
         <div ng-bind-html="sidebarCtrl.authorDescription"></div>
 
     </div>
