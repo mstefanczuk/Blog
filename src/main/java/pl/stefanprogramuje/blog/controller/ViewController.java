@@ -18,7 +18,8 @@ public class ViewController {
             "/admin/blog",
             "/admin/autor",
             "/admin/autor/skrocony-opis",
-            "/admin/autor/pelny-opis"
+            "/admin/autor/pelny-opis",
+            "/admin/kategorie"
     })
     public String index() {
         return "forward:/index.html";

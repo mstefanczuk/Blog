@@ -3,7 +3,8 @@
 
     const POSTS_BY_CATEGORY_ULR_PREFIX = 'kategorie/';
 
-    let blogModule = angular.module('blog');
+    let blogModule = angular.module('app');
+
     blogModule.controller('categoryController', function (allCategories) {
 
             let self = this;

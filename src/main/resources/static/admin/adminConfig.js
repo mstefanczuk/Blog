@@ -50,6 +50,17 @@
                 url: "/pelny-opis",
                 templateUrl: "admin/author/full-description.html",
                 controller: 'adminAuthorController as adminAuthorCtrl'
+            })
+
+            .state('admin.main.categories', {
+                url: "/admin/kategorie",
+                templateUrl: "admin/categories/categories.html",
+                controller: "categoryController as categoryCtrl",
+                resolve: {
+                    allCategories: ['categoryService', function (categoryService) {
+                        return categoryService.getAllCategories();
+                    }]
+                }
             });
 
         $provide.decorator('taOptions', ['taRegisterTool', 'taToolFunctions', '$delegate',
