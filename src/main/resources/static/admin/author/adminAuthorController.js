@@ -29,10 +29,13 @@
 
             loadContent();
 
+            self.changeImage = function () {
+                self.sidebarImageObject.body = self.sidebarImageFile.base64;
+            };
+
             self.updateSidebarImage = function ($event) {
                 self.event = $event;
                 self.submitImageButtonValue = BUTTON_TEXT_VALUE_WAIT;
-                self.sidebarImageObject.body = self.sidebarImageFile.base64;
 
                 return staticContentService.updateStaticContent(self.sidebarImageObject.id, self.sidebarImageObject)
                     .then(

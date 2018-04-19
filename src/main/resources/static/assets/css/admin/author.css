@@ -2,12 +2,12 @@
     color: #59727b;
 }
 
-.admin-author-sidebar-image-view {
+.admin-author-sidebar-image-input {
     grid-area: admin-author-sidebar-l-u;
-    padding-bottom: 10px;
+    padding-right: 5px;
 }
 
-.admin-author-sidebar-image-input {
+.admin-author-sidebar-image-view {
     grid-area: admin-author-sidebar-l-b;
 }
 
@@ -20,6 +20,10 @@
     grid-template-areas:
         'admin-author-sidebar-l-u admin-author-sidebar-r'
         'admin-author-sidebar-l-b admin-author-sidebar-r';
+}
+
+.admin-author-sidebar-image-input label {
+    font-weight: normal;
 }
 
 #admin-author-sidebar-base64-button {
