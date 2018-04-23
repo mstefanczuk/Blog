@@ -1,13 +1,14 @@
 <div class="container">
     <div class="admin-panels-container">
         <div class="panel left-panel">
-            <input class="submit-button" type="submit" value="Dodaj (jakoś ładnie go ustawić)" ng-click="">
+            <input class="submit-button" type="submit" value="Dodaj"
+                   ng-click="adminCategoryCtrl.setCreateModeOn()">
 
             <div class="category-headings-container">
-                <div class="category-heading col-sm-6 fadein" ng-repeat="category in categoryCtrl.categories">
-                    <a href="{{categoryCtrl.postsByCategoryUrlPrefix + category.nameUrl}}" scroll-top-on-click>
+                <div class="category-heading col-sm-6 fadein" ng-repeat="category in adminCategoryCtrl.categories">
+                    <a href="" ng-click="adminCategoryCtrl.setCurrentCategory(category)" scroll-top-on-click>
                         <figure>
-                            <img src="assets/img/categories/kategoria1.png"/>
+                            <img src="data:image/png;base64, {{category.image}}"/>
                             <figcaption>
                                 <h2>{{category.name}}</h2>
                             </figcaption>
@@ -16,12 +17,39 @@
                 </div>
             </div>
         </div>
+
         <div class="panel right-panel">
-            Obrazek (podgląd i przycisk wyboru)
-            <br>
-            Nazwa
-            <br>
-            Przycisk usuwania (jeśli nie tworzymy nowej)
+            <h3 id="admin-categories-right-panel-label">{{adminCategoryCtrl.rightPanelLabel}}</h3>
+
+            <div id="admin-categories-right-panel-advice" ng-show="!editFormVisible">
+                <h3>Wybierz istniejącą kategorię lub dodaj nową</h3>
+            </div>
+
+            <div ng-show="editFormVisible">
+                <div class="admin-categories-image-input">
+                    <label for="admin-categories-base64-button" class="submit-button base64-button">Wybierz obraz</label>
+                    <input id="admin-categories-base64-button" ng-show="false" ng-model="adminCategoryCtrl.imageFile"
+                           on-after-validate="adminCategoryCtrl.changeImage" type="file" base-sixty-four-input>
+                </div>
+
+                <div class="admin-categories-image-view">
+                    <figure>
+                        <figcaption>Podgląd:</figcaption>
+                        <img src="data:image/png;base64, {{adminCategoryCtrl.categoryObject.image}}"
+                            ng-show="adminCategoryCtrl.categoryObject.image"/>
+                    </figure>
+                </div>
+
+                <div class="admin-categories-name-field">
+                    <input name="categoryNameField" class="single-input-field" ng-model="adminCategoryCtrl.categoryObject.name"
+                           type="text" placeholder="Nazwa" required>
+                </div>
+
+                <div class="admin-categories-save">
+                    <input class="submit-button" type="submit" value="{{adminCategoryCtrl.submitButtonValue}}"
+                           ng-click="adminCategoryCtrl.submitChanges($event)">
+                </div>
+            </div>
         </div>
     </div>
 </div>

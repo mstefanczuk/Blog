@@ -55,7 +55,7 @@
             .state('admin.main.categories', {
                 url: "/admin/kategorie",
                 templateUrl: "admin/categories/categories.html",
-                controller: "categoryController as categoryCtrl",
+                controller: "adminCategoryController as adminCategoryCtrl",
                 resolve: {
                     allCategories: ['categoryService', function (categoryService) {
                         return categoryService.getAllCategories();

@@ -51,6 +51,7 @@ public class CategoryController {
 
         currentCategory.setName(categoryDetails.getName());
         currentCategory.setNameUrl(categoryDetails.getNameUrl());
+        currentCategory.setImage(categoryDetails.getImage());
 
         Category updatedCategory = categoryService.edit(currentCategory);
         return ResponseEntity.ok(updatedCategory);
@@ -60,7 +61,7 @@ public class CategoryController {
     public ResponseEntity<Category> deleteCategory(@PathVariable Long id) {
         Category category = categoryService.findById(id);
 
-        if(category == null) {
+        if (category == null) {
             return ResponseEntity.noContent().build();
         }
 

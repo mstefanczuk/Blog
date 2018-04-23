@@ -1,8 +1,8 @@
 <h1>Kontakt</h1>
 <form name="contactForm" class="contact-form">
-    <input name="emailField" id="email-field" ng-model="emailCtrl.from" type="email" placeholder="Email" required>
+    <input name="emailField" class="single-input-field" ng-model="emailCtrl.from" type="email" placeholder="Email" required>
     <textarea name="emailContentField" id="email-content-field" ng-model="emailCtrl.content" placeholder="Treść"
-              style="height:200px" maxlength="10000"></textarea>
+              maxlength="10000"></textarea>
 
     <input id="send-email-button" class="submit-button" type="submit" value="{{emailCtrl.submitButtonValue}}"
            ng-click="emailCtrl.sendEmail($event)">

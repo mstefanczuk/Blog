@@ -37,7 +37,7 @@
                 self.event = $event;
                 self.submitImageButtonValue = BUTTON_TEXT_VALUE_WAIT;
 
-                return staticContentService.updateStaticContent(self.sidebarImageObject.id, self.sidebarImageObject)
+                staticContentService.updateStaticContent(self.sidebarImageObject.id, self.sidebarImageObject)
                     .then(
                         function (response) {
                             if (response.body === self.sidebarImageObject.body) {
@@ -57,7 +57,7 @@
 
                 self.submitShortDescButtonValue = BUTTON_TEXT_VALUE_WAIT;
 
-                return staticContentService.updateStaticContent(self.sidebarDescriptionObject.id, self.sidebarDescriptionObject)
+                staticContentService.updateStaticContent(self.sidebarDescriptionObject.id, self.sidebarDescriptionObject)
                     .then(
                         function (response) {
                             if (response.body === self.sidebarDescriptionObject.body) {
@@ -75,7 +75,7 @@
             self.updateFullDescription = function ($event) {
                 self.event = $event;
 
-                return staticContentService.updateStaticContent(self.fullDescriptionObject.id, self.fullDescriptionObject)
+                staticContentService.updateStaticContent(self.fullDescriptionObject.id, self.fullDescriptionObject)
                     .then(
                         function (response) {
                             if (response.body === self.fullDescriptionObject.body) {
@@ -101,7 +101,7 @@
             }
 
             function loadFullDescription() {
-                return staticContentService.getStaticContentByName(AUTHOR_FULL_DESCRIPTION_STATIC_CONTENT_NAME).then(
+                staticContentService.getStaticContentByName(AUTHOR_FULL_DESCRIPTION_STATIC_CONTENT_NAME).then(
                     function (response) {
                         self.fullDescriptionObject = response;
                     }
@@ -109,7 +109,7 @@
             }
 
             function loadSidebarDescription() {
-                return staticContentService.getStaticContentByName(AUTHOR_SIDEBAR_DESCRIPTION_STATIC_CONTENT_NAME).then(
+                staticContentService.getStaticContentByName(AUTHOR_SIDEBAR_DESCRIPTION_STATIC_CONTENT_NAME).then(
                     function (response) {
                         self.sidebarDescriptionObject = response;
                     }
@@ -117,7 +117,7 @@
             }
 
             function loadSidebarImage() {
-                return staticContentService.getStaticContentByName(AUTHOR_SIDEBAR_IMAGE_STATIC_CONTENT_NAME).then(
+                staticContentService.getStaticContentByName(AUTHOR_SIDEBAR_IMAGE_STATIC_CONTENT_NAME).then(
                     function (response) {
                         self.sidebarImageObject = response;
                     }

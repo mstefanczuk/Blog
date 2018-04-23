@@ -22,14 +22,6 @@
         'admin-author-sidebar-l-b admin-author-sidebar-r';
 }
 
-.admin-author-sidebar-image-input label {
-    font-weight: normal;
-}
-
-#admin-author-sidebar-base64-button {
-    display: none;
-}
-
 .admin-author-sidebar-desc textarea {
     min-height: 200px;
 }

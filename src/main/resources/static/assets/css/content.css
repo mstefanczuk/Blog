@@ -32,3 +32,41 @@
 .submit-button:focus {
     outline: none;
 }
+
+.base64-button {
+    font-weight: normal;
+}
+
+.single-input-field, textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+    background-color: #f4fdf2;
+    border: 1px solid #93babb;
+}
+
+.single-input-field, textarea:focus {
+    outline-color: #dbeef0;
+}
+
+::-webkit-input-placeholder {
+    color: #93babb;
+}
+
+:-moz-placeholder {
+    color: #93babb;
+    opacity: 1;
+}
+
+::-moz-placeholder {
+    color: #93babb;
+    opacity: 1;
+}
+
+:-ms-input-placeholder {
+    color: #93babb;
+}

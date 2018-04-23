@@ -1,0 +1,36 @@
+.admin-categories-image-input {
+    grid-area: admin-categories-l-u;
+}
+
+.admin-categories-image-view {
+    grid-area: admin-categories-r-u;
+}
+
+.admin-categories-name-field {
+    grid-area: admin-categories-m;
+}
+
+.admin-categories-save {
+    grid-area: admin-categories-b;
+}
+
+.admin-categories-container {
+    display: grid;
+    grid-template-areas:
+            'admin-categories-l-u admin-categories-r-u'
+            'admin-categories-m admin-categories-m'
+            'admin-categories-b admin-categories-b';
+}
+
+#admin-author-sidebar-base64-button {
+    display: none;
+}
+
+.admin-author-sidebar-desc textarea {
+    min-height: 200px;
+}
+
+#admin-categories-right-panel-label, #admin-categories-right-panel-advice {
+    text-align: center;
+}
+

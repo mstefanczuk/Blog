@@ -19,6 +19,10 @@ public class Category {
     private String name;
 
     @Column(length = 100)
-    @NotBlank
     private String nameUrl;
+
+    @Lob
+    @Column
+    @NotBlank
+    private String image;
 }
