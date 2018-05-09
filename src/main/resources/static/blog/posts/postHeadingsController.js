@@ -26,7 +26,7 @@
 
         function loadNextPostsOnScrollReachedBottom() {
             $(window).scroll(function () {
-                if ($(window).scrollTop() === ($(document).height() - $(window).height())) {
+                if (($(window).scrollTop() + 100) >= ($(document).height() - $(window).height())) {
                     loadNextPosts();
                 }
             })

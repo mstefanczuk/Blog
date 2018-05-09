@@ -1,7 +1,8 @@
 (function () {
     'use strict';
 
-    let adminModule = angular.module('admin', ["ui.router", "duScroll", "ngAnimate", "textAngular", "naif.base64"]);
+    let adminModule = angular.module('admin', ["ui.router", "duScroll", "ngAnimate", "textAngular", "naif.base64",
+                                                "ngDialog"]);
 
     adminModule.config(function ($stateProvider, $provide) {
 
@@ -61,6 +62,35 @@
                         return categoryService.getAllCategories();
                     }]
                 }
+            })
+
+            .state('admin.main.posts', {
+                url: "/admin/posty",
+                templateUrl: "admin/posts/posts.html",
+                controller: "adminPostController as adminPostCtrl",
+                resolve: {
+                    first6Posts: ['postService', function (postService) {
+                        return postService.getNext6FromPage(0);
+                    }]
+                }
+            })
+
+            .state("admin.main.posts.confirm", {
+                url: "/potwierdz",
+                params: {id: null},
+                onEnter: ['ngDialog', '$state', function(ngDialog, $state) {
+                    ngDialog.open({
+                        template: 'admin/posts/confirm.html',
+                        controller: 'adminPostController as adminPostCtrl',
+                        resolve: {
+                            first6Posts: ['postService', function (postService) {
+                                return postService.getNext6FromPage(0);
+                            }]
+                        }
+                    }).closePromise.finally(function() {
+                        $state.go('^', {}, {reload: true});
+                    });
+                }]
             });
 
         $provide.decorator('taOptions', ['taRegisterTool', 'taToolFunctions', '$delegate',

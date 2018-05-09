@@ -2,10 +2,10 @@
     <div class="post-heading col-sm-6 fadein" ng-repeat="postHeading in postHeadingsCtrl.postsHeadingsList">
         <a href="{{postHeadingsCtrl.postUrlPrefix + postHeading.titleUrl}}" scroll-top-on-click>
             <figure>
-                <img src="assets/img/posts/pierwszy-post/heading.png"/>
+                <img src="data:image/png;base64, {{postHeading.image}}"/>
                 <figcaption>
                     <h2>{{postHeading.title}}</h2>
-                    <p>{{postHeading.body}}</p>
+                    <p ng-bind-html="postHeading.body"></p>
                 </figcaption>
             </figure>
         </a>

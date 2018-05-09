@@ -4,6 +4,7 @@ import lombok.Data;
 import org.hibernate.validator.constraints.NotBlank;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 @Entity
@@ -16,23 +17,32 @@ public class Post {
     private Long id;
 
     @Column(length = 300)
-    @NotBlank
+    @NotBlank(groups = EditModeValidation.class)
     private String title;
 
     @Lob
     @Column(nullable = false)
     private String body;
 
-    @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER)
+    @NotNull(groups = EditModeValidation.class)
     private User author;
 
-    @Column(nullable = false)
+    @Column
+    @NotNull(groups = EditModeValidation.class)
     private Date date;
 
     @Column(length = 300, unique = true)
-    @NotBlank
+    @NotBlank(groups = EditModeValidation.class)
     private String titleUrl;
 
     @ManyToOne(fetch = FetchType.EAGER)
     private Category category;
+
+    @Lob
+    @Column
+    @NotBlank
+    private String image;
+
+    public interface EditModeValidation {}
 }

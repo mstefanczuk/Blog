@@ -19,7 +19,9 @@ public class ViewController {
             "/admin/autor",
             "/admin/autor/skrocony-opis",
             "/admin/autor/pelny-opis",
-            "/admin/kategorie"
+            "/admin/kategorie",
+            "/admin/posty",
+            "/admin/posty/potwierdz"
     })
     public String index() {
         return "forward:/index.html";

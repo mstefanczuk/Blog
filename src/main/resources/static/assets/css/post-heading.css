@@ -30,3 +30,10 @@
 .post-heading:hover img, .category-heading:hover img {
     transform: scale(1.15);
 }
+
+.post-heading p {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+}

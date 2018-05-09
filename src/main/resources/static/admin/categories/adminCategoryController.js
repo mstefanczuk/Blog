@@ -1,8 +1,6 @@
 (function () {
     'use strict';
 
-    const POSTS_BY_CATEGORY_ULR_PREFIX = 'kategorie/';
-
     const BUTTON_TEXT_VALUE_SUBMIT = "Zapisz";
     const BUTTON_TEXT_VALUE_WAIT = "Czekaj...";
     const NOTIFICATION_MESSAGE_ERROR = "Jeśli dokonałeś zmian, to coś poszło nie tak :(";
@@ -17,7 +15,6 @@
             let self = this;
 
             self.categories = allCategories;
-            self.postsByCategoryUrlPrefix = POSTS_BY_CATEGORY_ULR_PREFIX;
             self.imageFile = null;
             self.categoryObject = {id: null, name: "", nameUrl: "", image: ""};
             self.rightPanelLabel = "";
@@ -32,7 +29,7 @@
             };
 
             self.setCurrentCategory = function (category) {
-                self.categoryObject = category;
+                self.categoryObject = angular.copy(category);
                 $scope.editFormVisible = true;
                 self.rightPanelLabel = RIGHT_PANEL_LABEL_EDIT_MODE;
                 self.isCreateModeOn = false;
@@ -59,13 +56,14 @@
                             if (response && response.name === self.categoryObject.name &&
                                 response.image === self.categoryObject.image) {
                                 self.notificationMessage = NOTIFICATION_MESSAGE_OK;
+                                $state.reload();
                             } else {
                                 self.notificationMessage = NOTIFICATION_MESSAGE_ERROR;
+
                             }
 
                             showNotification();
                             self.submitButtonValue = BUTTON_TEXT_VALUE_SUBMIT;
-                            $state.reload();
                         }
                     )
             }
@@ -79,6 +77,7 @@
                             if (response && response.name === self.categoryObject.name
                                 && response.image === self.categoryObject.image) {
                                 self.notificationMessage = NOTIFICATION_MESSAGE_OK;
+                                $state.reload();
                             } else {
                                 self.notificationMessage = NOTIFICATION_MESSAGE_ERROR;
                             }

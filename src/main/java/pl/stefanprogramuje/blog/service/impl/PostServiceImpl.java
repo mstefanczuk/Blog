@@ -5,18 +5,28 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import pl.stefanprogramuje.blog.domain.Post;
 import pl.stefanprogramuje.blog.domain.repository.PostRepository;
+import pl.stefanprogramuje.blog.domain.repository.UserRepository;
 import pl.stefanprogramuje.blog.service.PostService;
 
+import java.text.Normalizer;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
+import java.util.regex.Pattern;
 
 @Service
 public class PostServiceImpl implements PostService {
 
+    private static final Long DEFAULT_AUTHOR_ID = 1L;
+
     private final PostRepository postRepository;
+    private final UserRepository userRepository;
 
     @Autowired
-    public PostServiceImpl(PostRepository postRepository) {
+    public PostServiceImpl(PostRepository postRepository, UserRepository userRepository) {
         this.postRepository = postRepository;
+        this.userRepository = userRepository;
     }
 
     @Override
@@ -46,16 +56,28 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public Post create(Post post) {
+        post.setTitleUrl(getUrlName(post.getTitle()));
+        post.setAuthor(userRepository.getOne(DEFAULT_AUTHOR_ID));
+        post.setDate(new Date());
         return postRepository.save(post);
     }
 
     @Override
     public Post edit(Post post) {
+        post.setTitleUrl(getUrlName(post.getTitle()));
         return postRepository.save(post);
     }
 
     @Override
     public void deleteById(Long id) {
         postRepository.delete(id);
+    }
+
+    private String getUrlName(String name) {
+        String normalizedName = Normalizer.normalize((name), Normalizer.Form.NFD);
+        Pattern pattern = Pattern.compile("\\p{InCombiningDiacriticalMarks}+");
+        return pattern.matcher(normalizedName).replaceAll("")
+                .replaceAll("\\s+", "-")
+                .toLowerCase();
     }
 }

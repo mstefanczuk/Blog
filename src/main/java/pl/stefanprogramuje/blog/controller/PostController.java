@@ -3,6 +3,7 @@ package pl.stefanprogramuje.blog.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import pl.stefanprogramuje.blog.domain.Post;
 import pl.stefanprogramuje.blog.service.PostService;
@@ -59,7 +60,7 @@ public class PostController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Post> updatePost(@PathVariable Long id, @Valid @RequestBody Post postDetails) {
+    public ResponseEntity<Post> updatePost(@PathVariable Long id, @Validated(Post.EditModeValidation.class) @RequestBody Post postDetails) {
         Post currentPost = postService.findById(id);
         if(currentPost == null) {
             return ResponseEntity.noContent().build();
@@ -71,6 +72,7 @@ public class PostController {
         currentPost.setDate(postDetails.getDate());
         currentPost.setTitleUrl(postDetails.getTitleUrl());
         currentPost.setCategory(postDetails.getCategory());
+        currentPost.setImage(postDetails.getImage());
 
         Post updatedPost = postService.edit(currentPost);
         return ResponseEntity.ok(updatedPost);
