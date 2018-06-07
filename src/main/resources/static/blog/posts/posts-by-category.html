@@ -5,7 +5,7 @@
                 <img src="data:image/png;base64, {{postHeading.image}}"/>
                 <figcaption>
                     <h2>{{postHeading.title}}</h2>
-                    <p>{{postHeading.body}}</p>
+                    <p ng-bind-html="postHeading.body"></p>
                 </figcaption>
             </figure>
         </a>

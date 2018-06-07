@@ -49,7 +49,7 @@
             },
 
             getNext6ByCategoryNameUrlFromPage: function (categoryName, page) {
-                return $http.get(restApiUrl + CATEGORY_URL_SUFFIX + categoryName + PAGE_URL_SUFFIX + page)
+                return $http.get(restApiUrl + CATEGORY_URL_SUFFIX + categoryName + '/' + PAGE_URL_SUFFIX + page)
                     .then(
                         function (response) {
                             return response.data;
