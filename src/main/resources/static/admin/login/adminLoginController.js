@@ -1,18 +1,23 @@
 (function () {
     'use strict';
 
+    const NOTIFICATION_MESSAGE_ERROR = "Logowanie nie powiodło się";
+
     let adminModule = angular.module('admin');
 
-    adminModule.controller('adminLoginController', function ($http, $location) {
+    adminModule.controller('adminLoginController', function ($http, $location, notificationService) {
         let self = this;
 
         self.credentials = {};
-        self.error = false;
         self.authenticated = false;
+        self.notificationMessage = "";
+        self.event = null;
 
         authenticate();
 
-        self.login = function () {
+        self.login = function ($event) {
+            self.event = $event;
+
             $http.post('/admin/login', $.param(self.credentials), {
                 headers: {
                     "content-type": "application/x-www-form-urlencoded"
@@ -22,17 +27,16 @@
                     authenticate(function () {
                         if (self.authenticated) {
                             $location.path("/admin");
-                            self.error = false;
                         } else {
                             $location.path("/admin/login");
-                            self.error = true;
+                            showNotificationError();
                         }
                     });
                 },
                 function () {
                     $location.path("/admin/login");
-                    self.error = true;
                     self.authenticated = false;
+                    showNotificationError();
                 })
         };
 
@@ -60,6 +64,10 @@
                     callback && callback();
                 }
             )
+        }
+
+        function showNotificationError() {
+            notificationService.showNotification(NOTIFICATION_MESSAGE_ERROR, self.event);
         }
     });
 })();
