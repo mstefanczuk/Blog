@@ -1,8 +1,8 @@
 <div class="post">
     <h2 class="post-title">{{postDetailsCtrl.postTitle}}</h2>
     <p class="post-meta">{{postDetailsCtrl.postDate}},
-        autor: <a ui-sref="blog.main.author" scroll-top-on-click>{{postDetailsCtrl.postAuthor}}</a>,
+        autor: <a href="/autor" scroll-top-on-click>{{postDetailsCtrl.postAuthor}}</a>,
         kategoria: <a href="{{postDetailsCtrl.postsByCategoryUrlPrefix + postDetailsCtrl.postCategoryUrl}}"
                       scroll-top-on-click>{{postDetailsCtrl.postCategoryName}}</a></p>
-    <p>{{postDetailsCtrl.postBody}}</p>
+    <p ng-bind-html="postDetailsCtrl.postBody"></p>
 </div>

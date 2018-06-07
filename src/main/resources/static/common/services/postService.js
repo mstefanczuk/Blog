@@ -3,7 +3,7 @@
 
     const REST_API_URL = 'http://localhost:8080/api/posts/';
     const LATEST5_URL_SUFFIX = 'latest5/';
-    const PAGE_URL_SUFFIX = '/page/';
+    const PAGE_URL_SUFFIX = 'page/';
     const CATEGORY_URL_SUFFIX = 'category/';
     const TITLE_URL_SUFFIX = 'title/';
     const ERROR_MESSAGE_LATEST5 = 'Error while getting latest 5 posts';

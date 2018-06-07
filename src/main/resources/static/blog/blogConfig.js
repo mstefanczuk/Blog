@@ -49,19 +49,19 @@
             })
 
             .state('blog.main.about', {
-                url: "/blog",
+                url: "/blog{path:\/?}",
                 templateUrl: "blog/about/about.html",
                 controller: "aboutController as aboutCtrl"
             })
 
             .state('blog.main.author', {
-                url: "/autor",
+                url: "/autor{path:\/?}",
                 templateUrl: "blog/author/author.html",
                 controller: "authorController as authorCtrl"
             })
 
             .state('blog.main.categories', {
-                url: "/kategorie",
+                url: "/kategorie{path:\/?}",
                 templateUrl: "blog/categories/categories.html",
                 controller: "categoryController as categoryCtrl",
                 resolve: {
@@ -72,7 +72,7 @@
             })
 
             .state('blog.main.contact', {
-                url: "/kontakt",
+                url: "/kontakt{path:\/?}",
                 templateUrl: "blog/contact/contact.html",
                 controller: "emailController as emailCtrl"
             })

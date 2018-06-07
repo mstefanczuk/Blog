@@ -9,8 +9,6 @@ import pl.stefanprogramuje.blog.domain.repository.UserRepository;
 import pl.stefanprogramuje.blog.service.PostService;
 
 import java.text.Normalizer;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 import java.util.regex.Pattern;
@@ -18,7 +16,7 @@ import java.util.regex.Pattern;
 @Service
 public class PostServiceImpl implements PostService {
 
-    private static final Long DEFAULT_AUTHOR_ID = 1L;
+    private static final String DEFAULT_AUTHOR_ID = "stefan";
 
     private final PostRepository postRepository;
     private final UserRepository userRepository;
@@ -57,7 +55,7 @@ public class PostServiceImpl implements PostService {
     @Override
     public Post create(Post post) {
         post.setTitleUrl(getUrlName(post.getTitle()));
-        post.setAuthor(userRepository.getOne(DEFAULT_AUTHOR_ID));
+        post.setAuthor(userRepository.findOne(DEFAULT_AUTHOR_ID));
         post.setDate(new Date());
         return postRepository.save(post);
     }

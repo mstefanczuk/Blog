@@ -21,7 +21,8 @@ public class ViewController {
             "/admin/autor/pelny-opis",
             "/admin/kategorie",
             "/admin/posty",
-            "/admin/posty/potwierdz"
+            "/admin/posty/potwierdz",
+            "/admin/login"
     })
     public String index() {
         return "forward:/index.html";

@@ -2,7 +2,7 @@
     'use strict';
 
     let adminModule = angular.module('admin', ["ui.router", "duScroll", "ngAnimate", "textAngular", "naif.base64",
-                                                "ngDialog"]);
+        "ngDialog"]);
 
     adminModule.config(function ($stateProvider, $provide) {
 
@@ -11,7 +11,8 @@
                 abstract: true,
                 views: {
                     masthead: {
-                        templateUrl: "admin/layout/masthead.html"
+                        templateUrl: "admin/layout/masthead.html",
+                        controller: "adminLoginController as adminLoginCtrl"
                     },
 
                     header: {
@@ -25,36 +26,36 @@
             })
 
             .state('admin.main.home', {
-                url: "/admin",
+                url: "/admin{path:\/?}",
                 templateUrl: "admin/home/home.html"
             })
 
             .state('admin.main.about', {
-                url: "/admin/blog",
+                url: "/admin/blog{path:\/?}",
                 templateUrl: "admin/about/about.html",
                 controller: 'aboutController as aboutCtrl'
             })
 
             .state('admin.main.author', {
-                url: "/admin/autor",
+                url: "/admin/autor{path:\/?}",
                 templateUrl: "admin/author/author.html",
                 controller: 'adminAuthorController as adminAuthorCtrl'
             })
 
             .state('admin.main.author.short', {
-                url: "/skrocony-opis",
+                url: "/skrocony-opis{path:\/?}",
                 templateUrl: "admin/author/sidebar-description.html",
                 controller: 'adminAuthorController as adminAuthorCtrl'
             })
 
             .state('admin.main.author.full', {
-                url: "/pelny-opis",
+                url: "/pelny-opis{path:\/?}",
                 templateUrl: "admin/author/full-description.html",
                 controller: 'adminAuthorController as adminAuthorCtrl'
             })
 
             .state('admin.main.categories', {
-                url: "/admin/kategorie",
+                url: "/admin/kategorie{path:\/?}",
                 templateUrl: "admin/categories/categories.html",
                 controller: "adminCategoryController as adminCategoryCtrl",
                 resolve: {
@@ -65,7 +66,7 @@
             })
 
             .state('admin.main.posts', {
-                url: "/admin/posty",
+                url: "/admin/posty{path:\/?}",
                 templateUrl: "admin/posts/posts.html",
                 controller: "adminPostController as adminPostCtrl",
                 resolve: {
@@ -78,7 +79,7 @@
             .state("admin.main.posts.confirm", {
                 url: "/potwierdz",
                 params: {id: null},
-                onEnter: ['ngDialog', '$state', function(ngDialog, $state) {
+                onEnter: ['ngDialog', '$state', function (ngDialog, $state) {
                     ngDialog.open({
                         template: 'admin/posts/confirm.html',
                         controller: 'adminPostController as adminPostCtrl',
@@ -87,10 +88,16 @@
                                 return postService.getNext6FromPage(0);
                             }]
                         }
-                    }).closePromise.finally(function() {
+                    }).closePromise.finally(function () {
                         $state.go('^', {}, {reload: true});
                     });
                 }]
+            })
+
+            .state('admin.login', {
+                url: "/admin/login{path:\/?}",
+                templateUrl: "admin/login/login.html",
+                controller: 'adminLoginController as adminLoginCtrl'
             });
 
         $provide.decorator('taOptions', ['taRegisterTool', 'taToolFunctions', '$delegate',
