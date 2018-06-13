@@ -34,3 +34,6 @@
     text-align: center;
 }
 
+#admin-categories-right-panel {
+    min-width: 60%;
+}

@@ -1,13 +1,16 @@
-<ui-view name="masthead"></ui-view>
+<div class="window-container">
+    <div class="container-without-footer">
+        <ui-view name="masthead"></ui-view>
 
-<ui-view name="header"></ui-view>
+        <ui-view name="header"></ui-view>
 
-<div class="container">
-    <div id="blog-content">
-        <ui-view></ui-view>
+        <div class="container">
+            <div id="blog-content">
+                <ui-view></ui-view>
 
-        <ui-view name="sidebar"></ui-view>
+                <ui-view name="sidebar"></ui-view>
+            </div>
+        </div>
     </div>
+    <ui-view name="footer"></ui-view>
 </div>
-
-<ui-view name="footer"></ui-view>

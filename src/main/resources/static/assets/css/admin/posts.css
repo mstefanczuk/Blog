@@ -1,3 +1,7 @@
 #admin-posts-right-panel-label, #admin-posts-right-panel-advice {
     text-align: center;
 }
+
+#admin-posts-right-panel {
+    min-width: 60%;
+}

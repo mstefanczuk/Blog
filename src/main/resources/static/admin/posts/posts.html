@@ -1,4 +1,7 @@
 <div class="container">
+    <div class="title-section panel">
+        <h3 style="text-align: center">POSTY</h3>
+    </div>
     <div class="admin-panels-container">
         <div class="panel left-panel">
             <input class="submit-button" type="submit" value="Dodaj"
@@ -11,7 +14,6 @@
                             <img src="data:image/png;base64, {{post.image}}"/>
                             <figcaption>
                                 <h2>{{post.title}}</h2>
-                                <p ng-bind-html="post.body"></p>
                             </figcaption>
                         </figure>
                     </a>
@@ -19,7 +21,7 @@
             </div>
         </div>
 
-        <div class="panel right-panel">
+        <div id="admin-posts-right-panel" class="panel right-panel">
             <h3 id="admin-categories-right-panel-label">{{adminPostCtrl.rightPanelLabel}}</h3>
 
             <div id="admin-posts-right-panel-advice" ng-show="!editFormVisible">
@@ -27,29 +29,23 @@
             </div>
 
             <div ng-show="editFormVisible">
-                <div class="admin-categories-image-input">
-                    <label for="admin-categories-base64-button" class="submit-button base64-button">
-                        Wybierz obraz
-                    </label>
-                    <input id="admin-categories-base64-button" ng-show="false" ng-model="adminPostCtrl.imageFile"
-                           on-after-validate="adminPostCtrl.changeImage" type="file" base-sixty-four-input>
-                </div>
+                <label for="admin-categories-base64-button" class="submit-button base64-button">
+                    Wybierz obraz
+                </label>
+                <input id="admin-categories-base64-button" ng-show="false" ng-model="adminPostCtrl.imageFile"
+                       on-after-validate="adminPostCtrl.changeImage" type="file" base-sixty-four-input>
 
-                <div class="admin-categories-image-view">
-                    <figure>
-                        <figcaption>Podgląd:</figcaption>
-                        <img src="data:image/png;base64, {{adminPostCtrl.postObject.image}}"
-                             ng-show="adminPostCtrl.postObject.image"/>
-                    </figure>
-                </div>
+                <figure>
+                    <figcaption>Podgląd:</figcaption>
+                    <img src="data:image/png;base64, {{adminPostCtrl.postObject.image}}"
+                         ng-show="adminPostCtrl.postObject.image"/>
+                </figure>
 
-                <div class="admin-categories-name-field">
-                    <input name="postTitleField" class="single-input-field" ng-model="adminPostCtrl.postObject.title"
-                           type="text" placeholder="Tytuł" required>
-                </div>
+                <input name="postTitleField" class="single-input-field" ng-model="adminPostCtrl.postObject.title"
+                       type="text" placeholder="Tytuł" required>
 
-                <label for="categories-select">Kategoria:</label>
-                <select id="categories-select" ng-model="adminPostCtrl.postObject.category"
+                <label for="category-select">Kategoria:</label>
+                <select id="category-select" ng-model="adminPostCtrl.postObject.category"
                         ng-options="category.name for category in adminPostCtrl.categories track by category.id">
                 </select>
 

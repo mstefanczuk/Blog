@@ -3,6 +3,9 @@
     color: #637d5d;
     text-align: center;
     background-color: #cbe0bf;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 }
 
 #footer a {

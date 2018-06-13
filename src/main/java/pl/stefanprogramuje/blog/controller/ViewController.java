@@ -22,6 +22,8 @@ public class ViewController {
             "/admin/kategorie",
             "/admin/posty",
             "/admin/posty/potwierdz",
+            "/admin/ustawienia",
+            "/admin/ustawienia/haslo",
             "/admin/login"
     })
     public String index() {

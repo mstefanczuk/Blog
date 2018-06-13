@@ -94,6 +94,18 @@
                 }]
             })
 
+            .state('admin.main.settings', {
+                url: "/admin/ustawienia{path:\/?}",
+                templateUrl: "admin/settings/settings.html",
+                controller: 'adminSettingsController as adminSettingsCtrl'
+            })
+
+            .state('admin.main.settings.password', {
+                url: "/haslo{path:\/?}",
+                templateUrl: "admin/settings/password.html",
+                controller: 'adminSettingsController as adminSettingsCtrl'
+            })
+
             .state('admin.login', {
                 url: "/admin/login{path:\/?}",
                 templateUrl: "admin/login/login.html",
