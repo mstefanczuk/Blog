@@ -1,25 +1,23 @@
-<div class="admin-author-sidebar-container">
-    <div class="admin-author-sidebar-image-input">
+<div id="admin-author-sidebar-container">
+    <div id="admin-author-sidebar-desc" class="column">
+        <input class="submit-button" type="submit" value="{{adminAuthorCtrl.submitShortDescButtonValue}}"
+               ng-click="adminAuthorCtrl.updateSidebarDescription($event)">
+
+        <textarea name="authorSidebarDesc" ng-model="adminAuthorCtrl.sidebarDescriptionObject.body"
+                  placeholder="Treść"></textarea>
+    </div>
+
+    <div id="admin-author-sidebar-image">
         <label for="admin-author-sidebar-base64-button" class="submit-button base64-button">Wybierz obraz</label>
         <input id="admin-author-sidebar-base64-button" ng-show="false" type="file"
                ng-model="adminAuthorCtrl.sidebarImageFile" on-after-validate="adminAuthorCtrl.changeImage"
                base-sixty-four-input>
         <input class="submit-button" type="submit" value="{{adminAuthorCtrl.submitImageButtonValue}}"
                ng-click="adminAuthorCtrl.updateSidebarImage($event)" ng-show="adminAuthorCtrl.sidebarImageFile">
-    </div>
 
-    <div class="admin-author-sidebar-image-view">
         <figure>
             <figcaption>Podgląd:</figcaption>
             <img src="data:image/png;base64, {{adminAuthorCtrl.sidebarImageObject.body}}"/>
         </figure>
-    </div>
-
-    <div class="admin-author-sidebar-desc">
-        <input class="submit-button" type="submit" value="{{adminAuthorCtrl.submitShortDescButtonValue}}"
-               ng-click="adminAuthorCtrl.updateSidebarDescription($event)">
-
-        <textarea name="authorSidebarDesc" ng-model="adminAuthorCtrl.sidebarDescriptionObject.body"
-                  placeholder="Treść"></textarea>
     </div>
 </div>

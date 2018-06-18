@@ -32,8 +32,28 @@
     margin-top: 15px;
     margin-bottom: unset;
     padding: 5px;
+    overflow: hidden;
 }
 
-.title-section h3 {
+.title-section .align-left {
+    margin-top: 10px;
+    float: left;
+    text-align:left;
+    width:33.33333%;
+}
+
+.title-section .align-center {
+    float: left;
+    text-align:center;
+    width:33.33333%;
+}
+
+.title-section h3, h4 {
     margin-bottom: unset;
+}
+
+div.title-section div.align-center * {
+    text-align: center;
+    color: #59727b;
+    line-height: 150%;
 }
