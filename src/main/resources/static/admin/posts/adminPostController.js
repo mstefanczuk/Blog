@@ -33,6 +33,7 @@
         self.event = null;
         self.notificationMessage = "";
         self.categories = null;
+        self.leftPanelHidden = false;
 
         loadNextPostsOnScrollReachedBottom();
         loadCategories();
@@ -79,6 +80,10 @@
                         self.deleteButtonValue = BUTTON_TEXT_VALUE_DELETE;
                     }
                 )
+        };
+
+        self.showOrHideLeftPanel = function () {
+            self.leftPanelHidden = !self.leftPanelHidden;
         };
 
         function createPost() {

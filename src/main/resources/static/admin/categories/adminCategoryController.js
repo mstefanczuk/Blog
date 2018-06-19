@@ -23,6 +23,7 @@
             self.event = null;
             self.submitButtonValue = BUTTON_TEXT_VALUE_SUBMIT;
             $scope.editFormVisible = false;
+            self.leftPanelHidden = false;
 
             self.changeImage = function () {
                 self.categoryObject.image = self.imageFile.base64;
@@ -45,6 +46,10 @@
             self.submitChanges = function ($event) {
                 self.event = $event;
                 self.isCreateModeOn ? createCategory() : updateCategory();
+            };
+
+            self.showOrHideLeftPanel = function () {
+                self.leftPanelHidden = !self.leftPanelHidden;
             };
 
             function createCategory() {
