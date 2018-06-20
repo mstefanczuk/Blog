@@ -55,6 +55,9 @@
                         ng-options="category.name for category in adminPostCtrl.categories track by category.id">
                 </select>
 
+                <label for="is-post-top-checkbox">Należy do najciekawszych postów</label>
+                <input id="is-post-top-checkbox" type="checkbox" ng-model="adminPostCtrl.postObject.top">
+
                 <text-angular ng-model="adminPostCtrl.postObject.body"></text-angular>
 
                 <input class="submit-button" type="submit" value="{{adminPostCtrl.submitButtonValue}}"

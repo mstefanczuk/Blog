@@ -44,5 +44,8 @@ public class Post {
     @NotBlank
     private String image;
 
+    @Column(nullable = false)
+    private boolean top;
+
     public interface EditModeValidation {}
 }

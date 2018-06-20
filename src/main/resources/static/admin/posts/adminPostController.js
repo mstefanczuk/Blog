@@ -21,8 +21,7 @@
         self.postPagesCounter = 1;
         self.postsList = first6Posts;
         self.postObject = {
-            id: null, title: "", body: "", author: null,
-            date: null, titleUrl: "", category: null, image: ""
+            id: null, title: "", body: "", author: null, date: null, titleUrl: "", category: null, image: "", top: false
         };
         self.imageFile = null;
         $scope.editFormVisible = false;

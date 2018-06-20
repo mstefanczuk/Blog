@@ -33,6 +33,10 @@
                 resolve: {
                     latest5Posts: ['postService', function (postService) {
                         return postService.getLatest5Posts();
+                    }],
+
+                    first5TopPosts: ['postService', function (postService) {
+                        return postService.getFirst5TopPosts();
                     }]
                 }
             })
@@ -44,6 +48,17 @@
                 resolve: {
                     first6Posts: ['postService', function (postService) {
                         return postService.getNext6FromPage(0);
+                    }]
+                }
+            })
+
+            .state('blog.main.topPosts', {
+                url: "/najciekawsze-posty{path:\/?}",
+                templateUrl: "blog/posts/top-posts.html",
+                controller: "postHeadingsByTopTrueController as postHeadingsByTopTrueCtrl",
+                resolve: {
+                    first6TopPosts: ['postService', function (postService) {
+                        return postService.getNext6ByTopTrueFromPage(0);
                     }]
                 }
             })

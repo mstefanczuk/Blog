@@ -1,0 +1,12 @@
+<div class="post-headings-container">
+    <div class="post-heading col-sm-6 fadein" ng-repeat="postHeading in postHeadingsByTopTrueCtrl.postsHeadingsList">
+        <a href="{{postHeadingsByTopTrueCtrl.postUrlPrefix + postHeading.titleUrl}}" scroll-top-on-click>
+            <figure>
+                <img src="data:image/png;base64, {{postHeading.image}}"/>
+                <figcaption>
+                    <h2>{{postHeading.title}}</h2>
+                </figcaption>
+            </figure>
+        </a>
+    </div>
+</div>

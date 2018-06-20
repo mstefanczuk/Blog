@@ -5,14 +5,24 @@
             <img id="author-img" src="data:image/png;base64, {{sidebarCtrl.authorImageAsBase64}}"/>
         </a>
         <div ng-bind-html="sidebarCtrl.authorDescription"></div>
-
     </div>
+
     <h4>OSTATNIE POSTY</h4>
     <div class="sidebar-container">
         <ol class="list-unstyled">
             <li ng-repeat="post in sidebarCtrl.latest5Posts">
                 <a href="{{sidebarCtrl.postUrlPrefix + post.titleUrl}}" scroll-top-on-click>{{post.title}}</a>
             </li>
+        </ol>
+    </div>
+
+    <h4>NAJCIEKAWSZE POSTY</h4>
+    <div class="sidebar-container">
+        <ol class="list-unstyled">
+            <li ng-repeat="post in sidebarCtrl.first5TopPosts">
+                <a href="{{sidebarCtrl.postUrlPrefix + post.titleUrl}}" scroll-top-on-click>{{post.title}}</a>
+            </li>
+            <li><br><a href="/najciekawsze-posty" scroll-top-on-click="">Więcej...</a></li>
         </ol>
     </div>
 </div>

@@ -53,6 +53,16 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
+    public List<Post> findFirst5ByTopTrue() {
+        return postRepository.findAllByTopTrue(new PageRequest(0, 5));
+    }
+
+    @Override
+    public List<Post> findNext6ByTopTrue(int page) {
+        return postRepository.findAllByTopTrue(new PageRequest(page, 6));
+    }
+
+    @Override
     public Post create(Post post) {
         post.setTitleUrl(getUrlName(post.getTitle()));
         post.setAuthor(userRepository.findOne(DEFAULT_AUTHOR_ID));

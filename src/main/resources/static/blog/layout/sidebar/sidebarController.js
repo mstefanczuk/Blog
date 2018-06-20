@@ -1,16 +1,17 @@
 (function () {
     'use strict';
-    
+
     const POST_ULR_PREFIX = "post/";
     const AUTHOR_DESCRIPTION_STATIC_CONTENT_NAME = 'authorSidebar';
     const AUTHOR_IMAGE_STATIC_CONTENT_NAME = 'authorSidebarImage';
 
     let blogModule = angular.module('blog');
 
-    blogModule.controller('sidebarController', function (latest5Posts, staticContentService) {
+    blogModule.controller('sidebarController', function (latest5Posts, first5TopPosts, staticContentService) {
         let self = this;
 
         self.latest5Posts = latest5Posts;
+        self.first5TopPosts = first5TopPosts;
         self.postUrlPrefix = POST_ULR_PREFIX;
 
         self.authorDescription = "";

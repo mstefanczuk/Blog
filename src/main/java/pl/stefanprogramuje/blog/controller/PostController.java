@@ -45,8 +45,18 @@ public class PostController {
 
     @GetMapping("/category/{categoryNameUrl}/page/{page}")
     public ResponseEntity<List<Post>> getNext6PostsByCategoryNameUrlFromPage(@PathVariable String categoryNameUrl,
-                                                             @PathVariable int page) {
+                                                                             @PathVariable int page) {
         return ResponseEntity.ok(postService.findNext6ByCategoryNameUrlFromPage(categoryNameUrl, page));
+    }
+
+    @GetMapping("/top/page/{page}")
+    public ResponseEntity<List<Post>> getNext6PostsByTopTrueFromPage(@PathVariable int page) {
+        return ResponseEntity.ok(postService.findNext6ByTopTrue(page));
+    }
+
+    @GetMapping("/top/first5")
+    public ResponseEntity<List<Post>> getFirst5PostsByTopTrueFromPage() {
+        return ResponseEntity.ok(postService.findFirst5ByTopTrue());
     }
 
     @PostMapping
@@ -62,7 +72,7 @@ public class PostController {
     @PutMapping("/{id}")
     public ResponseEntity<Post> updatePost(@PathVariable Long id, @Validated(Post.EditModeValidation.class) @RequestBody Post postDetails) {
         Post currentPost = postService.findById(id);
-        if(currentPost == null) {
+        if (currentPost == null) {
             return ResponseEntity.noContent().build();
         }
 
@@ -73,6 +83,7 @@ public class PostController {
         currentPost.setTitleUrl(postDetails.getTitleUrl());
         currentPost.setCategory(postDetails.getCategory());
         currentPost.setImage(postDetails.getImage());
+        currentPost.setTop(postDetails.isTop());
 
         Post updatedPost = postService.edit(currentPost);
         return ResponseEntity.ok(updatedPost);
@@ -81,7 +92,7 @@ public class PostController {
     @DeleteMapping("/{id}")
     public ResponseEntity<Post> deletePost(@PathVariable Long id) {
         Post post = postService.findById(id);
-        if(post == null) {
+        if (post == null) {
             return ResponseEntity.noContent().build();
         }
 

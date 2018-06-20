@@ -16,6 +16,10 @@ public interface PostService {
 
     Post findByTitleUrl(String titleUrl);
 
+    List<Post> findFirst5ByTopTrue();
+
+    List<Post> findNext6ByTopTrue(int page);
+
     Post create(Post post);
 
     Post edit(Post post);

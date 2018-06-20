@@ -16,4 +16,6 @@ public interface PostRepository extends JpaRepository<Post, Long> {
     Post findByTitleUrl(String titleUrl);
 
     List<Post> findAllByCategory_NameUrlOrderByDateDesc(String categoryNameUrl, Pageable pageable);
+
+    List<Post> findAllByTopTrue(Pageable pageable);
 }
