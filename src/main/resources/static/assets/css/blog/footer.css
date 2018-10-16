@@ -1,15 +1,15 @@
 #footer {
     padding: 40px 0;
-    color: #637d5d;
+    color: #73626e;
     text-align: center;
-    background-color: #cbe0bf;
+    background-color: #867980;
     position: absolute;
     bottom: 0;
     width: 100%;
 }
 
 #footer a {
-    color: #59727b;
+    color: #413e4a;
 }
 
 #footer p:last-child {

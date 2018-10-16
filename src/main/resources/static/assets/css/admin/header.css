@@ -1,6 +1,6 @@
 #admin-header {
     width: 100%;
-    background: #dbeef0;
+    background: #b38184;
 }
 
 #admin-header img {
@@ -13,7 +13,7 @@
 
 #admin-navibar {
     width: 100%;
-    background-color: #bce1ae;
+    background-color: #867980;
     z-index: 100000;
     margin-top: 20px;
 }
@@ -23,12 +23,12 @@
 }
 
 #admin-navibar .navigation-bar-item {
-    color: #54694f;
+    color: #413e4a;
 }
 
 #admin-navibar .navigation-bar-item:hover,
 #admin-navibar .navigation-bar-item:focus {
-    color: #59727b;
+    color: #f0b49e;
     text-decoration: none;
 }
 

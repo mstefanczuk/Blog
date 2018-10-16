@@ -53,6 +53,10 @@
 
 div.title-section div.align-center * {
     text-align: center;
-    color: #59727b;
+    color: #413e4a;
     line-height: 150%;
+}
+
+.form-control {
+    background-color: #fffce9;
 }

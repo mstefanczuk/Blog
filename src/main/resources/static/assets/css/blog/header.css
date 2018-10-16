@@ -1,6 +1,6 @@
 #masthead {
     width: 100%;
-    background-color: #93babb;
+    background-color: #836973;
     -webkit-box-shadow: inset 0 -2px 5px rgba(0, 0, 0, .1);
     box-shadow: inset 0 -2px 5px rgba(0, 0, 0, .1);
     z-index: 100000;
@@ -14,23 +14,23 @@
     display: inline-block;
     padding: 10px;
     font-weight: 500;
-    color: #dbeef0;
+    color: #f0b49e;
     margin: auto;
 }
 
 .navigation-bar-item:hover,
 .navigation-bar-item:focus {
-    color: #fff;
+    color: #f7e4be;
     text-decoration: none;
 }
 
 .navigation-bar-item .active {
-    color: #fff;
+    color: #f7e4be;
 }
 
 #header {
     width: 100%;
-    background: #dbeef0;
+    background: #b38184;
 }
 
 #header img {

@@ -132,7 +132,8 @@
 
                             if (this.files && this.files[0]) {
                                 reader.onload = function (e) {
-                                    $editor().wrapSelection('insertHtml', '<img src=' + e.target.result + '>', true);
+                                    $editor().wrapSelection('insertHtml',
+                                        '<img style="width: 80%;" src=' + e.target.result + '>', true);
                                 };
 
                                 reader.readAsDataURL(this.files[0]);

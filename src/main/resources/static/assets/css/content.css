@@ -1,7 +1,7 @@
 .panel {
     font-size: 13px;
     line-height: 1.5;
-    background-color: #f4fdf2;
+    background-color: #fffce9;
     border-radius: 4px;
     padding: 20px;
     margin: 15px;
@@ -9,24 +9,28 @@
 }
 
 .panel * {
-    color: #59727b;
+    color: #413e4a;
 }
 
 .panel a {
-    color: #637d5d;
+    color: #b38184;
+}
+
+pre {
+    background-color: #fffdf2;
 }
 
 .submit-button {
-    background-color: #93babb;
+    background-color: #b38184;
     padding: 12px 20px;
     border: none;
     border-radius: 2px;
     cursor: pointer;
-    color: #dbeef0;
+    color: #f7e4be;
 }
 
 .submit-button:hover {
-    color: #fff;
+    color: #fffce9;
 }
 
 .submit-button:focus {
@@ -45,28 +49,28 @@
     margin-top: 6px;
     margin-bottom: 16px;
     resize: vertical;
-    background-color: #f4fdf2;
-    border: 1px solid #93babb;
+    background-color: #f7e4be;
+    border: 1px solid #b38184;
 }
 
 .single-input-field, textarea:focus {
-    outline-color: #dbeef0;
+    outline-color: #f0b49e;
 }
 
 ::-webkit-input-placeholder {
-    color: #93babb;
+    color: #b38184;
 }
 
 :-moz-placeholder {
-    color: #93babb;
+    color: #b38184;
     opacity: 1;
 }
 
 ::-moz-placeholder {
-    color: #93babb;
+    color: #b38184;
     opacity: 1;
 }
 
 :-ms-input-placeholder {
-    color: #93babb;
+    color: #b38184;
 }
