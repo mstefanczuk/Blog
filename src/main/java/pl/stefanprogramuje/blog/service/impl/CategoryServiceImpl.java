@@ -57,6 +57,7 @@ public class CategoryServiceImpl implements CategoryService {
         Pattern pattern = Pattern.compile("\\p{InCombiningDiacriticalMarks}+");
         return pattern.matcher(normalizedName).replaceAll("")
                 .replaceAll("\\s+", "-")
+                .replaceAll("[^A-Za-z0-9-]", "")
                 .toLowerCase();
     }
 }
